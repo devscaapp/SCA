@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "172013608302",
+    "project_id": "dev-sca-app",
+    "storage_bucket": "dev-sca-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172013608302:android:1ccd6be80af3de3a7cf57f",
+        "android_client_info": {
+          "package_name": "com.example.sca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172013608302-j7ups2nkcujd26b4408qme15l5s9fkha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1X4gaDZUKZGN5Wcjbd3TC2tlJLaHr3WM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172013608302-j7ups2nkcujd26b4408qme15l5s9fkha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
