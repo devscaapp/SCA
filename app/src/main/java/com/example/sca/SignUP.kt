@@ -1,5 +1,6 @@
 package com.example.sca
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -29,6 +30,9 @@ class SignUP : AppCompatActivity() {
 
         button_register.setOnClickListener{
             Toast.makeText(this, "clicked Rigister", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this,sign_in::class.java)
+            startActivity(intent)
+
         }
 
 
