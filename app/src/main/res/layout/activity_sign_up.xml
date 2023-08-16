@@ -22,10 +22,10 @@
         android:id="@+id/imageViewBackground"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="44dp"
         android:src="@drawable/circle___back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,9 +33,11 @@
         android:id="@+id/textViewLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="28dp"
         android:text="Login"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="#1f302f"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="232dp"
         android:text="Register"
+        android:textColor="#000000"
+        android:fontFamily="@font/poppins_medium"
         android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +63,7 @@
         android:layout_width="350dp"
         android:layout_height="55dp"
         android:hint="Full Name"
+        android:inputType="text"
         android:padding="10dp"
         android:background="@drawable/edt_backgroud"
         app:layout_constraintTop_toBottomOf="@+id/textViewRegister"
@@ -75,6 +80,7 @@
         android:layout_width="350dp"
         android:layout_height="55dp"
         android:hint="Email"
+        android:inputType="textEmailAddress"
         android:padding="10dp"
         android:background="@drawable/edt_backgroud"
         app:layout_constraintTop_toBottomOf="@+id/editTextFullName"
@@ -89,6 +95,7 @@
         android:layout_width="350dp"
         android:layout_height="55dp"
         android:padding="10dp"
+        android:inputType="phone"
         android:hint="Phone Number"
         android:background="@drawable/edt_backgroud"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
@@ -98,19 +105,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"/>
 
-    <TextView
-        android:id="@+id/textViewTerms"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="612dp"
-        android:layout_marginEnd="180dp"
-        android:text="Login"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber"
-        app:layout_constraintTop_toTopOf="@id/buttonRegister" />
+
 
     <Button
         android:id="@+id/buttonRegister"
@@ -123,9 +118,9 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTerms"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber"
         app:layout_constraintVertical_bias="1.0" />
 
 
