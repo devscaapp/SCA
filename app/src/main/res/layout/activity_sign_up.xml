@@ -20,12 +20,12 @@
 
     <ImageView
         android:id="@+id/imageViewBackground"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginTop="32dp"
         android:src="@drawable/circle___back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,13 +33,13 @@
         android:id="@+id/textViewLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="28dp"
-        android:text="Login"
+        android:layout_marginTop="@dimen/_42sdp"
+        android:layout_marginEnd="@dimen/_22sdp"
         android:fontFamily="@font/poppins_medium"
+        android:text="Login"
         android:textColor="#1f302f"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="@dimen/_15ssp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,11 +47,11 @@
         android:id="@+id/textViewRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="@dimen/_178sdp"
         android:text="Register"
         android:textColor="#000000"
         android:fontFamily="@font/poppins_medium"
-        android:textSize="35sp"
+        android:textSize="@dimen/_29ssp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.104"
