@@ -46,13 +46,26 @@ class SignUP : AppCompatActivity() {
         button_register.setOnClickListener{
             var email= edit_text_email.text.toString().trim()
             var pass = edit_Text_passowrd.text.toString().trim()
+
+
             auth.createUserWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
+
                         // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "createUserWithEmail:success")
-                        val user = auth.currentUser
-                        updateUI(user)
+                        auth.currentUser?.sendEmailVerification()
+                            ?.addOnSuccessListener {
+                                Toast.makeText(baseContext,"Please verify your Email",Toast.LENGTH_SHORT, ).show()
+
+                            //saveData -- TODO
+                                Log.d(TAG, "createUserWithEmail:success - Not Verified")
+                                val user = auth.currentUser
+                                //updateUI(user)
+                            }
+                            ?.addOnFailureListener {
+                                Toast.makeText(baseContext,"Email Verification Failed",Toast.LENGTH_SHORT, ).show()
+                            }
+
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "createUserWithEmail:failure", task.exception)
