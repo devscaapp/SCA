@@ -13,13 +13,13 @@
         android:text="LOGIN Succesfull"
         android:textAlignment="center" />
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonLogout"
         android:layout_width="350dp"
         android:layout_height="55dp"
         android:layout_margin="20dp"
         android:background="@drawable/btn_background"
         android:padding="10dp"
-        android:text="NOt herre"
+        android:text="LOGOUT"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16dp"/>
