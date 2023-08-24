@@ -27,6 +27,5 @@ class MainActivity : ComponentActivity() {
             val intent = Intent(this,Register::class.java)
             startActivity(intent)
         }
-
     }
 }

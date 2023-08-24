@@ -86,7 +86,7 @@
         android:background="@drawable/light_btn"
         android:drawableLeft="@drawable/ic_google"
         android:paddingLeft="40dp"
-        android:text="Register using email"
+        android:text="Register using Google"
         android:textAllCaps="false"
         android:textColor="#828282"
         android:textSize="18sp"

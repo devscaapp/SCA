@@ -32,4 +32,16 @@ class Register : AppCompatActivity() {
         }
 
     }
+    public override fun onStart() {
+        super.onStart()
+//        val currentUser = auth.currentUser
+//        if (currentUser != null) {
+//            updateUI(currentUser)
+//        }
+    }
+    private fun updateUI() {
+        Toast.makeText(baseContext,"Login Failed",Toast.LENGTH_SHORT,).show()
+        val intent = Intent(this,Register::class.java)
+        startActivity(intent)
+    }
 }
