@@ -22,7 +22,7 @@
         android:id="@+id/imageViewBackground"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:src="@drawable/circle___back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.086"
@@ -60,63 +60,63 @@
 
     <EditText
         android:id="@+id/editTextFullName"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
         android:hint="Full Name"
         android:inputType="text"
-        android:padding="10dp"
+        android:padding="@dimen/_5sdp"
         android:background="@drawable/edt_backgroud"
         app:layout_constraintTop_toBottomOf="@+id/textViewRegister"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="36dp"/>
+        android:layout_marginStart="@dimen/_26sdp"
+        android:layout_marginEnd="@dimen/_26sdp"
+        android:layout_marginTop="@dimen/_28sdp"/>
 
 
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:padding="10dp"
+        android:padding="@dimen/_5sdp"
         android:background="@drawable/edt_backgroud"
         app:layout_constraintTop_toBottomOf="@+id/editTextFullName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginStart="@dimen/_26sdp"
+        android:layout_marginEnd="@dimen/_26sdp"
+        android:layout_marginTop="@dimen/_12sdp"/>
 
     <EditText
         android:id="@+id/editTextPhoneNumber"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
-        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
+        android:padding="@dimen/_5sdp"
         android:inputType="phone"
         android:hint="Phone Number"
         android:background="@drawable/edt_backgroud"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginStart="@dimen/_26sdp"
+        android:layout_marginEnd="@dimen/_26sdp"
+        android:layout_marginTop="@dimen/_12sdp"/>
 
 
     <EditText
         android:id="@+id/editTextPassowrd"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
+        android:layout_marginStart="@dimen/_26sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_26sdp"
         android:background="@drawable/edt_backgroud"
         android:hint="Password"
         android:inputType="textPassword"
-        android:padding="10dp"
+        android:padding="@dimen/_5sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,8 +124,8 @@
 
     <Button
         android:id="@+id/buttonRegister"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_44sdp"
         android:layout_margin="20dp"
         android:background="@drawable/btn_background"
         android:padding="10dp"

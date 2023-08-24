@@ -26,7 +26,7 @@ class sign_in : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
-        val submitButton: Button = findViewById(R.id.btnLogin)
+        val submitButton: Button = findViewById(R.id.buttonRegister)
         edit_text_email= findViewById(R.id.editTextEmail)
         edit_Text_passowrd = findViewById(R.id.editTextPassowrd)
         text_view_login= findViewById(R.id.textRegister)
