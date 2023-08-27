@@ -10,6 +10,9 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -41,6 +44,8 @@ class SignUP : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
 
+
+
         //var name = edit_text_full_name.text.toString()
 
         button_register.setOnClickListener{
@@ -65,7 +70,6 @@ class SignUP : AppCompatActivity() {
                             ?.addOnFailureListener {
                                 Toast.makeText(baseContext,"Email Verification Failed",Toast.LENGTH_SHORT, ).show()
                             }
-
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "createUserWithEmail:failure", task.exception)
