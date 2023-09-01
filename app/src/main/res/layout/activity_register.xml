@@ -78,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/small_text" />
 
     <Button
-        android:id="@+id/registergButton"
+        android:id="@+id/googleButton"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="330dp"
         android:layout_height="55dp"
