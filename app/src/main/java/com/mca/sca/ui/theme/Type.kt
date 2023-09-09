@@ -1,4 +1,4 @@
-package com.example.sca.ui.theme
+package com.mca.sca.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

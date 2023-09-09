@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.sca'
+    namespace 'com.mca.sca'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.sca"
+        applicationId "com.mca.sca"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -81,8 +81,6 @@ dependencies {
 
     implementation 'com.intuit.sdp:sdp-android:1.1.0'
     implementation 'com.intuit.ssp:ssp-android:1.1.0'// responsive size
-    implementation 'com.ui.optimize:dimens:1.0.0'
-
     //implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.20"
 
     testImplementation 'junit:junit:4.13.2'
@@ -92,4 +90,9 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    implementation 'com.google.android.play:integrity:1.2.0'
+    implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
+
+    implementation 'io.github.chaosleung:pinview:1.4.4'  //pin view dependency
 }
