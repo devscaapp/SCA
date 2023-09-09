@@ -31,14 +31,14 @@ class SignUP : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        image_view_background= findViewById(R.id.imageViewBackground)
-        text_view_login= findViewById(R.id.textViewLogin)
+        image_view_background= findViewById(R.id.imageViewBackgroundSU)
+        text_view_login= findViewById(R.id.textViewLoginSU)
         //edit_text_full_name= findViewById(R.id.editTextFullName)
-        edit_text_email= findViewById(R.id.editTextEmail)
-        edit_text_phone_number= findViewById(R.id.editTextPhoneNumber)
-        var button_register: Button= findViewById(R.id.buttonRegister)
-        edit_Text_passowrd = findViewById(R.id.editTextPassowrd)
-        val edit_text_full_name: EditText = findViewById(R.id.editTextFullName)
+        edit_text_email= findViewById(R.id.editTextEmailSU)
+        edit_text_phone_number= findViewById(R.id.editTextPhoneNumberSU)
+        var button_register: Button= findViewById(R.id.buttonRegisterSU)
+        edit_Text_passowrd = findViewById(R.id.editTextPassowrdSU)
+        val edit_text_full_name: EditText = findViewById(R.id.editTextFullNameSU)
 
 
         // Initialize Firebase Auth
@@ -51,21 +51,33 @@ class SignUP : AppCompatActivity() {
         button_register.setOnClickListener{
             var email= edit_text_email.text.toString().trim()
             var pass = edit_Text_passowrd.text.toString().trim()
+            var phone = edit_text_phone_number.text.toString().trim()
 
 
-            auth.createUserWithEmailAndPassword(email, pass)
+           /* auth.createUserWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
 
                         // Sign in success, update UI with the signed-in user's information
+
                         auth.currentUser?.sendEmailVerification()
                             ?.addOnSuccessListener {
-                                Toast.makeText(baseContext,"Please verify your Email",Toast.LENGTH_SHORT, ).show()
+                                Toast.makeText(baseContext,"Please verify your account",Toast.LENGTH_SHORT, ).show()
 
                             //saveData -- TODO
                                 Log.d(TAG, "createUserWithEmail:success - Not Verified")
                                 val user = auth.currentUser
                                 //updateUI(user)
+
+                                val intent = Intent(this@SignUP, VerificationMethod::class.java)
+
+                                // Pass the email and phone number as extras to the VerificationMethod activity
+                                intent.putExtra("email", email)
+                                intent.putExtra("phone", phone) // Replace 'phone' with the actual variable name
+
+                                // Start the VerificationMethod activity
+                                startActivity(intent)
+                                finish()
                             }
                             ?.addOnFailureListener {
                                 Toast.makeText(baseContext,"Email Verification Failed",Toast.LENGTH_SHORT, ).show()
@@ -78,10 +90,19 @@ class SignUP : AppCompatActivity() {
                             "Authentication failed.",
                             Toast.LENGTH_SHORT,
                         ).show()
-                        updateUI(null)
+                        //updateUI(null)
                     }
-                }
+                }*/
 
+
+
+            val intent = Intent(this, VerificationMethod::class.java)
+            intent.putExtra("email", email)
+            intent.putExtra("phone", phone) // Replace 'phone' with the actual variable name
+
+            // Start the VerificationMethod activity
+            startActivity(intent)
+            finish()
         }
         text_view_login.setOnClickListener{
             val intent = Intent(this,sign_in::class.java)
@@ -91,8 +112,8 @@ class SignUP : AppCompatActivity() {
 
     }
 
-    private fun updateUI(user: FirebaseUser?) {
+   /* private fun updateUI(user: FirebaseUser?) {
         val intent = Intent(this,MainActivity::class.java)
         startActivity(intent)
-    }
+    }*/
 }
