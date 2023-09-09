@@ -12,6 +12,19 @@
         android:layout_weight="1"
         android:text="LOGIN Succesfull"
         android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/buttonData"
+        android:layout_width="350dp"
+        android:layout_height="55dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/btn_background"
+        android:padding="10dp"
+        android:text="Send Data"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
     <Button
         android:id="@+id/buttonLogout"
         android:layout_width="350dp"

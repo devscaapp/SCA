@@ -1,4 +1,4 @@
-package com.example.sca
+package com.mca.sca
 
 import org.junit.Test
 

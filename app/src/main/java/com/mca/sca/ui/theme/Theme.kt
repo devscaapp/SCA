@@ -1,4 +1,4 @@
-package com.example.sca.ui.theme
+package com.mca.sca.ui.theme
 
 import android.app.Activity
 import android.os.Build

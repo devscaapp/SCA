@@ -1,4 +1,4 @@
-package com.example.sca
+package com.mca.sca
 
 import android.content.ContentValues.TAG
 import android.content.Intent
