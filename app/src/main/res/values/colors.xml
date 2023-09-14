@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="voilet">#673b74</color>
+    <color name="lightgreen">#d5eeee</color>
 
 </resources>
