@@ -10,6 +10,9 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -17,9 +20,9 @@ import com.google.firebase.ktx.Firebase
 
 class SignUP : AppCompatActivity() {
 
-     lateinit var image_view_background : ImageView
+    lateinit var image_view_background : ImageView
     lateinit var text_view_login: TextView
-   // lateinit var edit_text_full_name: EditText
+    // lateinit var edit_text_full_name: EditText
     lateinit var edit_text_email: EditText
     lateinit var edit_text_phone_number: EditText
     lateinit var edit_Text_passowrd: EditText
@@ -51,55 +54,55 @@ class SignUP : AppCompatActivity() {
             var phone = edit_text_phone_number.text.toString().trim()
 
 
-           /* auth.createUserWithEmailAndPassword(email, pass)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
+             auth.createUserWithEmailAndPassword(email, pass)
+                 .addOnCompleteListener(this) { task ->
+                     if (task.isSuccessful) {
 
-                        // Sign in success, update UI with the signed-in user's information
+                         // Sign in success, update UI with the signed-in user's information
 
-                        auth.currentUser?.sendEmailVerification()
-                            ?.addOnSuccessListener {
-                                Toast.makeText(baseContext,"Please verify your account",Toast.LENGTH_SHORT, ).show()
+                         auth.currentUser?.sendEmailVerification()
+                             ?.addOnSuccessListener {
+                                 Toast.makeText(baseContext,"Please verify your account",Toast.LENGTH_SHORT, ).show()
 
-                            //saveData -- TODO
-                                Log.d(TAG, "createUserWithEmail:success - Not Verified")
-                                val user = auth.currentUser
-                                //updateUI(user)
+                             //saveData -- TODO
+                                 Log.d(TAG, "createUserWithEmail:success - Not Verified")
+                                 val user = auth.currentUser
+                                 updateUI(user)
 
-                                val intent = Intent(this@SignUP, VerificationMethod::class.java)
+                                 /*val intent = Intent(this@SignUP, VerificationMethod::class.java)*/
 
-                                // Pass the email and phone number as extras to the VerificationMethod activity
-                                intent.putExtra("email", email)
-                                intent.putExtra("phone", phone) // Replace 'phone' with the actual variable name
+                                 // Pass the email and phone number as extras to the VerificationMethod activity
+                                /* intent.putExtra("email", email)
+                                 intent.putExtra("phone", phone) // Replace 'phone' with the actual variable name
 
-                                // Start the VerificationMethod activity
-                                startActivity(intent)
-                                finish()
-                            }
-                            ?.addOnFailureListener {
-                                Toast.makeText(baseContext,"Email Verification Failed",Toast.LENGTH_SHORT, ).show()
-                            }
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            baseContext,
-                            "Authentication failed.",
-                            Toast.LENGTH_SHORT,
-                        ).show()
-                        //updateUI(null)
-                    }
-                }*/
+                                 // Start the VerificationMethod activity
+                                 startActivity(intent)
+                                 finish()*/
+                             }
+                             ?.addOnFailureListener {
+                                 Toast.makeText(baseContext,"Email Verification Failed",Toast.LENGTH_SHORT, ).show()
+                             }
+                     } else {
+                         // If sign in fails, display a message to the user.
+                         Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                         Toast.makeText(
+                             baseContext,
+                             "Authentication failed.",
+                             Toast.LENGTH_SHORT,
+                         ).show()
+                         //updateUI(null)
+                     }
+                 }
 
 
 
-            val intent = Intent(this, VerificationMethod::class.java)
+           /* val intent = Intent(this, VerificationMethod::class.java)
             intent.putExtra("email", email)
             intent.putExtra("phone", phone) // Replace 'phone' with the actual variable name
 
             // Start the VerificationMethod activity
             startActivity(intent)
-            finish()
+            finish()*/
         }
         text_view_login.setOnClickListener{
             val intent = Intent(this,sign_in::class.java)
@@ -109,8 +112,8 @@ class SignUP : AppCompatActivity() {
 
     }
 
-   /* private fun updateUI(user: FirebaseUser?) {
-        val intent = Intent(this,MainActivity::class.java)
-        startActivity(intent)
-    }*/
+     private fun updateUI(user: FirebaseUser?) {
+         val intent = Intent(this,MainActivity::class.java)
+         startActivity(intent)
+     }
 }

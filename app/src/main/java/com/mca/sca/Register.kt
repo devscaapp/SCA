@@ -44,7 +44,7 @@ class Register : AppCompatActivity() {
         }
         button_register.setOnClickListener{
             Toast.makeText(this, "clicked Register", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this,SignUP::class.java)
+            val intent = Intent(this, SignUP::class.java)
             startActivity(intent)
         }
         googlebtn.setOnClickListener {

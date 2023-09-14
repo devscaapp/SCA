@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "562387727619",
+    "project_id": "sca-devapp",
+    "storage_bucket": "sca-devapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562387727619:android:106752ceac36ae8f286536",
+        "android_client_info": {
+          "package_name": "com.mca.sca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562387727619-c9d9luljpj7ufeob4klqmvufojh2b1k5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mca.sca",
+            "certificate_hash": "f224caf6495fd1954f67925797658bda89c8f97a"
+          }
+        },
+        {
+          "client_id": "562387727619-s88ea4jafrciagicda85jrur8tjbl2t4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mca.sca",
+            "certificate_hash": "0a819477fdd254a83e36ef775fb825ad36583a9a"
+          }
+        },
+        {
+          "client_id": "562387727619-dvd1rm4hl8j95brvklkjverd7s9tprug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZelpL-c-eNXV-CoBjq8hFSZzXYIPze4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562387727619-dvd1rm4hl8j95brvklkjverd7s9tprug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
