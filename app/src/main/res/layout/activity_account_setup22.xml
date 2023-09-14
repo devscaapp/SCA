@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".SignUP">
+
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
 
 
 
@@ -34,68 +44,177 @@
         android:id="@+id/textViewRegisterSU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="156dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Register"
+        android:text="Account"
         android:textColor="#000000"
         android:textSize="@dimen/_29ssp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="@+id/imageViewLogoSU"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
+    <TextView
+        android:id="@+id/textViewRegisterSU2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Setup-2/2"
+        android:textColor="#000000"
+        android:textSize="@dimen/_29ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toStartOf="@+id/imageViewLogoSU"
+        app:layout_constraintTop_toBottomOf="@id/textViewRegisterSU" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/UploadImgAndId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textViewRegisterSU"
-        android:padding="20dp">
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@id/buttonRegisterSU"
+        app:layout_constraintTop_toBottomOf="@id/textViewRegisterSU2"
+        app:layout_constraintVertical_bias="0.067"
+        tools:layout_editor_absoluteX="-31dp">
 
-        <LinearLayout
+
+        <Button
+            android:id="@+id/UploadImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="200dp"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/lightgreen"
+            android:text="Upload Image"
+            android:textColor="@color/TextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </Button>
+
+        <ImageView
+            android:id="@+id/ShowImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="4dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="20dp">
+
+        </ImageView>
+
+        <Button
+            android:id="@+id/UploadImage2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_background"
+            android:backgroundTint="@color/lightgreen"
+            android:text="Upload ID card"
+            android:textColor="@color/TextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/UploadImage">
+
+        </Button>
+
+        <ImageView
+            android:id="@+id/ShowImage2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/UploadImage"
+            tools:layout_editor_absoluteX="20dp">
+
+        </ImageView>
 
 
 
-            <Button
-                android:id="@+id/UploadImage"
+    <EditText
+                android:id="@+id/RegistrationNumber"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/_44sdp"
                 android:background="@drawable/btn_background"
                 android:backgroundTint="@color/lightgreen"
-                android:text="Upload Image"
-                android:textColor="@color/black">
+                android:layout_marginTop="20dp"
+                android:text="Registration Number"
+                app:layout_constraintTop_toBottomOf="@id/ShowImage2"
+                android:padding="15dp"
+                android:textColor="@color/TextColor"
+                />
+            <EditText
+                android:id="@+id/RollNo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44sdp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/lightgreen"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/RegistrationNumber"
+                android:text="Roll. NO"
+                android:padding="15dp"
+                android:textColor="@color/TextColor"
+                />
+            <EditText
+                android:id="@+id/City"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44sdp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/lightgreen"
+                android:layout_marginTop="20dp"
+                android:text="City"
+                app:layout_constraintTop_toBottomOf="@id/RollNo"
+                android:padding="15dp"
+                android:textColor="@color/TextColor"
+                />
+            <EditText
+                android:id="@+id/State"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44sdp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/lightgreen"
+                app:layout_constraintTop_toBottomOf="@id/City"
+                android:layout_marginTop="20dp"
+                android:text="State"
+                android:padding="15dp"
+                android:textColor="@color/TextColor"
+                />
+            <EditText
+                android:id="@+id/linkedln"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44sdp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/lightgreen"
+                android:layout_marginTop="20dp"
+                android:text="Linkedln Link"
+                app:layout_constraintTop_toBottomOf="@id/State"
+                android:padding="15dp"
+                android:textColor="@color/TextColor"
+                />
+            <EditText
+                android:id="@+id/Github"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44sdp"
+                android:background="@drawable/btn_background"
+                android:backgroundTint="@color/lightgreen"
+                android:textColor="@color/TextColor"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/linkedln"
+                android:text="Github link"
+                android:padding="15dp"
+                />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </Button>
-
-            <ImageView
-                android:id="@+id/ShowImage"
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:visibility="invisible">
-
-            </ImageView>
 
 
 
-
-
-
-
-
-
-
-
-
-        </LinearLayout>
-
-
-
-
-
-
-    </ScrollView>
 
 
 
@@ -117,4 +236,7 @@
         app:layout_constraintVertical_bias="0.886" />
 
 
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
