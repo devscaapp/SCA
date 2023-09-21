@@ -43,4 +43,9 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string-array name="Batch">
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+    </string-array>
 </resources>
