@@ -108,12 +108,14 @@ class SignUP : AppCompatActivity() {
             val intent = Intent(this,sign_in::class.java)
             startActivity(intent)
         }
-
-
     }
 
      private fun updateUI(user: FirebaseUser?) {
-         val intent = Intent(this,MainActivity::class.java)
+         val intent = Intent(this,AccountSetup2_2::class.java)
          startActivity(intent)
+         val galleryIntent = Intent(Intent.ACTION_PICK)
+         galleryIntent.type = "image/*"
+         //imagePickerActivityResult.launch(galleryIntent)
      }
+
 }

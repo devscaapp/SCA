@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
         var button_register: Button = findViewById(R.id.buttonLogout)
         var button_data: Button = findViewById(R.id.buttonData)
         val db=FirebaseFirestore.getInstance()
-        button_register.setOnClickListener {
+        button_data.setOnClickListener {
             val city=City("Noida","UP","India",false,5000000L,listOf("west_coast","social"))
             db.collection("cities").document("LA").set(city)
         }
