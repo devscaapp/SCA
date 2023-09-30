@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_option1"
+        android:title="Option 1"
+        android:icon="@drawable/home" />
+    <item
+        android:id="@+id/nav_option2"
+        android:title="Option 2"
+        android:icon="@drawable/resources" />
+    <item
+        android:id="@+id/nav_option3"
+        android:title="Option 3"
+        android:icon="@drawable/group" />
+    <item
+        android:id="@+id/nav_option4"
+        android:title="Option 4"
+        android:icon="@drawable/notification" />
+    <item
+        android:id="@+id/nav_option5"
+        android:title="Option 4"
+        android:icon="@drawable/profile" />
+
+</menu>
