@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -20,8 +21,9 @@ data class User(
     val uid:String?=null,
     // val profile_imgurl:String?=null,
     //val id_imgurl:String?=null,
-    //val name:String?=null,
-    //val email:String?=null,
+    val name:String?=null,
+    val email:String?=null,
+    val phone:String?=null,
     val reg_no:String?=null,
     val rollno:String?=null,
     val city:String?=null,
@@ -46,10 +48,10 @@ class AccountSetup2_2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account_setup22)
-        var button_Upload_profilepic: Button = findViewById(R.id.UploadImage)
+        var button_Upload_profilepic: ConstraintLayout = findViewById(R.id.UploadImgAndId1)
         var image_show: ImageView= findViewById(R.id.ShowImage);
         var img_id: ImageView= findViewById(R.id.ShowImage2);
-        var button_UploadID: Button = findViewById(R.id.UploadImage2)
+        var button_UploadID: ConstraintLayout = findViewById(R.id.UploadImgAndId2)
 
         var editText_reg_no:EditText = findViewById(R.id.RegistrationNumber)
         var editText_rollno:EditText = findViewById(R.id.RollNo)
@@ -129,9 +131,11 @@ class AccountSetup2_2 : AppCompatActivity() {
                                 }*/
                         }
                 }
-
+            val name = intent.getStringExtra("name")
+            val email = intent.getStringExtra("email")
+            val phone = intent.getStringExtra("phone")
             //Data Upload
-            val user=User( userId,reg_no,roll_no,city,state, linkedln, github,"N")
+            val user=User( userId,name,email, phone,reg_no,roll_no,city,state, linkedln, github,"N")
             db.collection("Users").document(userId).set(user)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Data Uploaded", Toast.LENGTH_SHORT).show()
@@ -140,19 +144,20 @@ class AccountSetup2_2 : AppCompatActivity() {
                     Toast.makeText(this, "Data Upload Failed", Toast.LENGTH_SHORT).show()
                 }
             /*data class User(
-                val uid:String?=null,
-                // val profile_imgurl:String?=null,
-                //val id_imgurl:String?=null,
-                //val name:String?=null,
-                //val email:String?=null,
-                val reg_no:String?=null,
-                val rollno:String?=null,
-                val city:String?=null,
-                val state:String?=null,
-                val linkedln:String?=null,
-                val github:String?=null,
-                val verified:Char?=null,
-                //val skill:String?=null,
+    val uid:String?=null,
+    // val profile_imgurl:String?=null,
+    //val id_imgurl:String?=null,
+    val name:String?=null,
+    val email:String?=null,
+    val phone:String?=null,
+    val reg_no:String?=null,
+    val rollno:String?=null,
+    val city:String?=null,
+    val state:String?=null,
+    val linkedln:String?=null,
+    val github:String?=null,
+    val verified:String?=null,
+    //val skill:String?=null,
             )*/
         }
 

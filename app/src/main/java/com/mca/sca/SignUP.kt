@@ -49,9 +49,10 @@ class SignUP : AppCompatActivity() {
         //var name = edit_text_full_name.text.toString()
 
         button_register.setOnClickListener{
+            var name = edit_text_full_name.toString()
             var email= edit_text_email.text.toString().trim()
-            var pass = edit_Text_passowrd.text.toString().trim()
             var phone = edit_text_phone_number.text.toString().trim()
+            var pass = edit_Text_passowrd.text.toString().trim()
 
 
              auth.createUserWithEmailAndPassword(email, pass)
@@ -67,7 +68,7 @@ class SignUP : AppCompatActivity() {
                              //saveData -- TODO
                                  Log.d(TAG, "createUserWithEmail:success - Not Verified")
                                  val user = auth.currentUser
-                                 updateUI(user)
+                                 updateUI(user,name, email, phone)
 
                                  /*val intent = Intent(this@SignUP, VerificationMethod::class.java)*/
 
@@ -110,8 +111,11 @@ class SignUP : AppCompatActivity() {
         }
     }
 
-     private fun updateUI(user: FirebaseUser?) {
+     private fun updateUI(user: FirebaseUser?, name: String, email: String, phone: String) {
          val intent = Intent(this,AccountSetup2_2::class.java)
+         intent.putExtra("name", name)
+         intent.putExtra("email", email)
+         intent.putExtra("phone", phone)
          startActivity(intent)
          val galleryIntent = Intent(Intent.ACTION_PICK)
          galleryIntent.type = "image/*"
