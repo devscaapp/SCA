@@ -31,7 +31,7 @@ class VerificationMethod : AppCompatActivity() {
     lateinit var btn_verify_phone: Button
     lateinit var buttonNextVM: Button
     private lateinit var auth: FirebaseAuth
-    var phone : String= "8700689505"
+    var phone : String= "+918837041258"
     var flag =0
     lateinit var imageViewBackgroundVM: ImageView
 
@@ -71,21 +71,17 @@ class VerificationMethod : AppCompatActivity() {
             else if(flag==2)   //user selected phone verification
             {
                 if (phone != null) {
-                    if(phone!!.length==10)
-                    {
-                        phone="+91$phone"
-                        sendVerificationCode(phone!!)
-                    }
+
+
+                    sendVerificationCode(phone!!)
+                }
                     else
                     {
                         Toast.makeText(this, "Please enter correct number", Toast.LENGTH_SHORT).show()
                     }
 
-                }
-                else
-                {
-                    Toast.makeText(this, "Please enter the number", Toast.LENGTH_SHORT).show()
-                }
+
+
                 flag=0
             }
         }

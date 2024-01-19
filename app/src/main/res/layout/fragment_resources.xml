@@ -64,7 +64,7 @@
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_145sdp"
                     app:cardCornerRadius="25dp"
-                    app:cardElevation="70dp"
+                    app:cardElevation="100dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.128"
