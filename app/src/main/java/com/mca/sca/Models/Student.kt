@@ -5,5 +5,6 @@ data class Student(
     val name: String? =null,
     val rollno: String? =null,
     val city: String? =null,
+    val uid: String? =null,
     val state: String? =null
 )
