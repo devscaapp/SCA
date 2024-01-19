@@ -15,9 +15,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     >
-
-
-
     <ImageView
         android:id="@+id/imageViewLogoSU"
         android:layout_width="wrap_content"
@@ -81,6 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
+            android:id="@+id/ShowImage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:visibility="invisible"
@@ -104,6 +102,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
+            android:id="@+id/ShowImage2"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:visibility="invisible"
@@ -203,14 +202,6 @@
                 android:padding="15dp"
                 />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
-
 
     <Button
         android:id="@+id/buttonRegisterSU"

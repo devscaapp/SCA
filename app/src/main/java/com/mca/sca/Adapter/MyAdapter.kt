@@ -27,17 +27,19 @@ class MyAdapter(private val  studentList: ArrayList<Student>): RecyclerView.Adap
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
        val currentItem= studentList[position]
-        currentItem.id_img?.let { holder.userImage.setImageResource(it) }
+        //currentItem.id_img?.let { holder.userImage.setImageResource(it) }
         holder.userName.text= currentItem.name
         holder.userState.text=currentItem.state
+        holder.userRoll.text = currentItem.rollno
     }
 
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
     {
-        val userImage: ImageView = itemView.findViewById(R.id.UserImage)
+        //val userImage: ImageView = itemView.findViewById(R.id.UserImage)
         val userName:  TextView = itemView.findViewById(R.id.UserName)
         val userState: TextView = itemView.findViewById(R.id.UserState)
+        val userRoll: TextView =itemView.findViewById(R.id.RollNo)
     }
 
 

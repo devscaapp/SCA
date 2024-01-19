@@ -84,7 +84,7 @@ class Register : AppCompatActivity() {
     }
     private fun updateUI(user: FirebaseUser?) {
         Toast.makeText(baseContext,"Login Successful.",Toast.LENGTH_SHORT,).show()
-        val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this,AccountSetup2_2::class.java)
         startActivity(intent)
     }
 

@@ -6,6 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
+import com.mca.sca.Adapter.MyAdapter
+import com.mca.sca.Models.Student
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,6 +72,9 @@ class BatchFragment : Fragment() {
 }*/
 
 class BatchFragment : Fragment() {
+    private lateinit var recycleView:RecyclerView
+    private lateinit var userList: ArrayList<Student>
+    private var db =Firebase.firestore
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -73,6 +85,31 @@ class BatchFragment : Fragment() {
         // Inflate the activity layout and add it to the fragment container
         val activityLayout = inflater.inflate(R.layout.activity_batch_recycler, fragmentContainer, false)
         fragmentContainer.addView(activityLayout)
+
+        recycleView = fragmentView.findViewById(R.id.RecyclerList)
+        recycleView.layoutManager=LinearLayoutManager(requireContext())
+
+        userList = arrayListOf()
+        db= FirebaseFirestore.getInstance()
+
+        db.collection("Users").get()
+            .addOnSuccessListener {
+            if(!it.isEmpty)
+            {
+                for(data in it.documents)
+                {
+                    val stu: Student? = data.toObject(Student::class.java)
+                    if(stu!=null)
+                    {
+                        userList.add(stu)
+                    }
+                }
+                recycleView.adapter = MyAdapter(userList)
+            }
+            }
+            .addOnFailureListener{
+                Toast.makeText(requireContext(),it.toString(),Toast.LENGTH_SHORT).show()
+            }
 
         return fragmentView
     }
