@@ -94,19 +94,18 @@
             app:layout_constraintStart_toEndOf="@id/tvRoll"
             app:layout_constraintTop_toBottomOf="@id/planets_spinner" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RecyclerList"
-            android:layout_width="match_parent"
-            android:layout_height="550dp"
-            android:padding="@dimen/_5sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-
-            app:layout_constraintTop_toBottomOf="@id/textViewRegister"
-            app:layout_constraintVertical_bias="1.0"
-            tools:listitem="@layout/list_item" />
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/RecyclerList"
+               android:layout_width="match_parent"
+               android:layout_height="550dp"
+               android:padding="@dimen/_5sdp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHorizontal_bias="1.0"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/textViewRegister"
+               app:layout_constraintVertical_bias="0.831"
+               tools:listitem="@layout/list_item" />
 
 
        </androidx.constraintlayout.widget.ConstraintLayout>

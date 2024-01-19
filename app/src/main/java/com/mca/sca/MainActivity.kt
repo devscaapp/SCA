@@ -1,30 +1,74 @@
 package com.mca.sca
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import androidx.activity.ComponentActivity
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.ktx.storage
 import com.mca.sca.databinding.HomeBinding
+import de.hdodenhof.circleimageview.CircleImageView
 
-data class City(
+/*data class City(
     val name:String?=null,
     val state:String?=null,
     val country:String?=null,
     val isCapital:Boolean?=null,
     val population:Long?=null,
     val regions:List<String>?=null
-)
+)*/
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : HomeBinding
-
+    private var db=Firebase.firestore
+    lateinit var storage: FirebaseStorage
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding= HomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        replaceFragment(HomeFragment())
+        /*
+        // USER data
+        var userName: TextView =findViewById(R.id.UserName)
+        var userImage: CircleImageView =findViewById(R.id.UserImage)
+        var userState: TextView =findViewById(R.id.UserState)
+
+        val uid= FirebaseAuth.getInstance().currentUser!!.uid
+        val ref= db.collection("Users").document(uid)
+
+
+        //Toast.makeText(this, "ID:"+uid.toString(), Toast.LENGTH_SHORT).show()
+        ref.get().addOnSuccessListener {
+            if(it != null)
+            {
+                val name = it.data?.get("name")?.toString()
+                val email = it.data?.get("email")?.toString()
+
+                userName.text= name
+                userState.text= email
+                Toast.makeText(this, "DONE!!!", Toast.LENGTH_LONG).show()
+            }
+        }
+            .addOnFailureListener {
+                Toast.makeText(this, "Failed!", Toast.LENGTH_SHORT).show()
+            }
+        val storage = Firebase.storage
+        val storageRef = storage.reference
+        val pathReference = storageRef.child("/ProfileImage/"+uid.toString())
+
+        storageRef.child("/ProfileImage/"+uid.toString()).downloadUrl
+            .addOnSuccessListener {
+                Glide.with(this).load(it).into(userImage);
+        }.addOnFailureListener {
+                Toast.makeText(this, "URL not Found", Toast.LENGTH_LONG).show()
+        }*/
 
         binding= HomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -74,7 +118,6 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun replaceFragment(fragment: Fragment){
-
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.Frame_Layout, fragment)
