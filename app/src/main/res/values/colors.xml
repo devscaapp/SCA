@@ -10,5 +10,9 @@
     <color name="voilet">#673b74</color>
     <color name="lightgreen">#d5eeee</color>#828282
     <color name="TextColor">#828282</color>
+    <color name="themedarkgreen">#3FB4B1</color>
+    <color name="Themelightgreen">#D5EEEE</color>
+    <color name="Themelightlightgreen">#e8f6f6</color>#e8f6f6
+    <color name="darkgrey">#B2B6B6</color>
 
 </resources>

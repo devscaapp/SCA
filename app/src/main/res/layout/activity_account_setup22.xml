@@ -6,7 +6,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".SignUP">
+    tools:context=".AccountSetup2_2">
 
 
 
@@ -81,6 +81,7 @@
             android:id="@+id/ShowImage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:autofillHints=""
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -131,8 +132,10 @@
                 android:id="@+id/RegistrationNumber"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_44sdp"
-                android:background="@drawable/btn_background"
-                android:backgroundTint="@color/lightgreen"
+                android:background="@drawable/custon_input"
+                android:drawableLeft="@drawable/custom_register_icon"
+                android:drawablePadding="15dp"
+
 
                 android:text="Registration Number"
                 app:layout_constraintTop_toTopOf="parent"
@@ -145,11 +148,13 @@
                 android:id="@+id/RollNo"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_44sdp"
-                android:background="@drawable/btn_background"
-                android:backgroundTint="@color/lightgreen"
+                android:background="@drawable/custon_input"
+                android:drawableLeft="@drawable/custom_roll_icon"
+                android:drawablePadding="15dp"
+
                 android:layout_marginTop="20dp"
                 app:layout_constraintTop_toBottomOf="@id/RegistrationNumber"
-                android:text="Roll. NO"
+                android:hint="Roll. NO"
                 android:padding="15dp"
                 android:textColor="@color/TextColor"
                 />
@@ -157,10 +162,12 @@
                 android:id="@+id/City"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_44sdp"
-                android:background="@drawable/btn_background"
-                android:backgroundTint="@color/lightgreen"
+                android:background="@drawable/custon_input"
+                android:drawableLeft="@drawable/custom_house_icon"
+                android:drawablePadding="15dp"
+
                 android:layout_marginTop="20dp"
-                android:text="City"
+                android:hint="City"
                 app:layout_constraintTop_toBottomOf="@id/RollNo"
                 android:padding="15dp"
                 android:textColor="@color/TextColor"
@@ -169,11 +176,13 @@
                 android:id="@+id/State"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_44sdp"
-                android:background="@drawable/btn_background"
-                android:backgroundTint="@color/lightgreen"
+                android:background="@drawable/custon_input"
+                android:drawableLeft="@drawable/custom_location_icon"
+                android:drawablePadding="15dp"
+
                 app:layout_constraintTop_toBottomOf="@id/City"
                 android:layout_marginTop="20dp"
-                android:text="State"
+                android:hint="State"
                 android:padding="15dp"
                 android:textColor="@color/TextColor"
                 />
@@ -181,10 +190,12 @@
                 android:id="@+id/linkedln"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_44sdp"
-                android:background="@drawable/btn_background"
-                android:backgroundTint="@color/lightgreen"
+                android:background="@drawable/custon_input"
+                android:drawableLeft="@drawable/linkdln"
+                android:drawablePadding="15dp"
+
                 android:layout_marginTop="20dp"
-                android:text="Linkedln Link"
+                android:hint="Linkedln Link"
                 app:layout_constraintTop_toBottomOf="@id/State"
                 android:padding="15dp"
                 android:textColor="@color/TextColor"
@@ -193,14 +204,140 @@
                 android:id="@+id/Github"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_44sdp"
-                android:background="@drawable/btn_background"
-                android:backgroundTint="@color/lightgreen"
+                android:background="@drawable/custon_input"
+                android:drawableLeft="@drawable/github"
+                android:drawablePadding="15dp"
+
                 android:textColor="@color/TextColor"
                 android:layout_marginTop="20dp"
                 app:layout_constraintTop_toBottomOf="@id/linkedln"
-                android:text="Github link"
+                android:hint="Github link"
                 android:padding="15dp"
                 />
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+            android:id="@+id/time_button_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:flexWrap="wrap"
+            app:toggle_selectableAmount="11"
+            app:toggle_requiredAmount="0"
+            app:toggle_selectAnimation="circular_reveal"
+            app:layout_constraintTop_toBottomOf="@id/Github"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            > <!-- this attribute is from the underlying FlexboxLayout -->
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_margin="10dp"
+                android:id="@+id/android"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_44sdp"
+                app:toggle_text="android"
+                app:toggle_backgroundColor="@color/Themelightgreen"
+                app:toggle_selectedBackgroundColor="@color/themedarkgreen"/>
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_margin="10dp"
+                android:id="@+id/web_dev"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_44sdp"
+                app:toggle_text="Web Dev"
+                app:toggle_backgroundColor="@color/Themelightgreen"
+                app:toggle_selectedBackgroundColor="@color/themedarkgreen"/>
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_margin="10dp"
+                android:id="@+id/ai_ml"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_44sdp"
+                app:toggle_text="AI ML"
+                app:toggle_backgroundColor="@color/Themelightgreen"
+                app:toggle_selectedBackgroundColor="@color/themedarkgreen"/>
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_margin="10dp"
+                android:id="@+id/devops"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_44sdp"
+                app:toggle_text="Devops"
+                app:toggle_backgroundColor="@color/Themelightgreen"
+                app:toggle_selectedBackgroundColor="@color/themedarkgreen"/>
+
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_margin="10dp"
+                android:id="@+id/cybersecurity"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_44sdp"
+                app:toggle_text="Cyber Sec"
+                app:toggle_backgroundColor="@color/Themelightgreen"
+                app:toggle_selectedBackgroundColor="@color/themedarkgreen"/>
+
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_margin="10dp"
+                android:id="@+id/networking"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_44sdp"
+                app:toggle_text="networking"
+                app:toggle_backgroundColor="@color/Themelightgreen"
+                app:toggle_selectedBackgroundColor="@color/themedarkgreen"/>
+
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_margin="10dp"
+                android:id="@+id/fullstack"
+                android:layout_width="wrap_content"
+
+                android:layout_height="@dimen/_44sdp"
+                app:toggle_text="Full Stack Web"
+                app:toggle_backgroundColor="@color/Themelightgreen"
+                app:toggle_selectedBackgroundColor="@color/themedarkgreen"/>
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_margin="10dp"
+                android:id="@+id/python"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_44sdp"
+                app:toggle_text="Python"
+                app:toggle_backgroundColor="@color/Themelightgreen"
+                app:toggle_selectedBackgroundColor="@color/themedarkgreen"/>
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_margin="10dp"
+                android:id="@+id/flutter"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_44sdp"
+                app:toggle_text="Flutter"
+                app:toggle_backgroundColor="@color/Themelightgreen"
+                app:toggle_selectedBackgroundColor="@color/themedarkgreen"/>
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_margin="10dp"
+                android:id="@+id/cloudcomp"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_44sdp"
+                app:toggle_text="Clout computing"
+                app:toggle_textColor="@color/black"
+                app:toggle_backgroundColor="@color/Themelightgreen"
+                app:toggle_selectedBackgroundColor="@color/themedarkgreen"/>
+
+            <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                android:layout_margin="10dp"
+                android:id="@+id/other"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_44sdp"
+                app:toggle_text="other"
+                app:toggle_backgroundColor="@color/Themelightgreen"
+                app:toggle_selectedBackgroundColor="@color/themedarkgreen"/>
+
+        </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
