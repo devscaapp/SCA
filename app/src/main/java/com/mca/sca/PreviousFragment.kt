@@ -17,9 +17,6 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class PreviousFragment : Fragment() {
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {

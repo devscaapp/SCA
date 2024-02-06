@@ -7,13 +7,21 @@
     tools:context=".PreviousFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <androidx.cardview.widget.CardView
+    <!--<androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardBackgroundColor="#d5eeee"
-        app:cardCornerRadius="30dp"
+        app:cardPreventCornerOverlap="true"
         android:elevation="80dp"
         android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"/>
+        android:layout_marginEnd="@dimen/_10sdp"/>-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lightgreen"
+        android:elevation="@dimen/_80sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        />
 
 </FrameLayout>

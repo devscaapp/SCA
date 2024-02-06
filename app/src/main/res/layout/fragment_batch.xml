@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <ImageView
             android:id="@+id/imageViewLogo"
             android:layout_width="wrap_content"
@@ -39,32 +38,47 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.04" />
 
+        <Spinner
+            android:id="@+id/batch_spinner"
+            android:pointerIcon="arrow"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:entries="@array/Batch"
+
+            app:layout_constraintBottom_toTopOf="@id/RecyclerList"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/custom_spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewRegister"
+            app:layout_constraintVertical_bias="0.0" />
 
            <Spinner
-               android:id="@+id/planets_spinner"
+               android:id="@+id/year_spinner"
                android:layout_width="@dimen/_80sdp"
-               android:layout_height="@dimen/_35sdp"
+               android:layout_height="@dimen/_25sdp"
                android:background="@drawable/custom_spinner"
+               android:entries="@array/Year"
 
-               android:entries="@array/Batch"
+               android:pointerIcon="arrow"
                android:spinnerMode="dropdown"
-               app:layout_constraintBottom_toTopOf="@id/RecyclerList"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintHorizontal_bias="0.052"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@id/textViewRegister"
-               app:layout_constraintVertical_bias="0.0" />
+               app:layout_constraintEnd_toStartOf="@+id/button"
+               app:layout_constraintHorizontal_bias="0.164"
+               app:layout_constraintStart_toEndOf="@+id/batch_spinner"
+               app:layout_constraintTop_toBottomOf="@+id/textViewRegister" />
 
            <Button
-               android:layout_width="@dimen/_80sdp"
-               android:layout_height="@dimen/_35sdp"
+               android:id="@+id/button"
+               android:layout_width="@dimen/_50sdp"
+               android:layout_height="@dimen/_25sdp"
                android:layout_marginTop="84dp"
                android:background="@drawable/btn_background"
                android:text="View"
                android:textColor="@color/white"
                app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintHorizontal_bias="0.858"
-               app:layout_constraintStart_toEndOf="@id/planets_spinner"
+               app:layout_constraintHorizontal_bias="0.836"
+               app:layout_constraintStart_toEndOf="@id/batch_spinner"
                app:layout_constraintTop_toTopOf="parent" />
 
            <TextView
@@ -79,34 +93,33 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/planets_spinner" />
+            app:layout_constraintTop_toBottomOf="@id/batch_spinner" />
 
-           <TextView
-               android:layout_width="@dimen/_70sdp"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="16dp"
-               android:text="NAME"
-               android:textColor="@color/teal_700"
-               android:textSize="@dimen/_18ssp"
-               android:textStyle="bold"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintHorizontal_bias="0.694"
-               app:layout_constraintStart_toEndOf="@id/tvRoll"
-               app:layout_constraintTop_toBottomOf="@id/planets_spinner" />
+        <TextView
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="NAME"
+            android:textColor="@color/teal_700"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.361"
+            app:layout_constraintStart_toEndOf="@id/tvRoll"
+            app:layout_constraintTop_toBottomOf="@id/batch_spinner" />
 
            <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RecyclerList"
-            android:layout_width="match_parent"
-            android:layout_height="550dp"
-            android:padding="@dimen/_5sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-
-            app:layout_constraintTop_toBottomOf="@id/textViewRegister"
-            app:layout_constraintVertical_bias="1.0"
-            tools:listitem="@layout/list_item" />
+               android:id="@+id/RecyclerList"
+               android:layout_width="match_parent"
+               android:layout_height="550dp"
+               android:padding="@dimen/_5sdp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHorizontal_bias="1.0"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/textViewRegister"
+               app:layout_constraintVertical_bias="0.831"
+               tools:listitem="@layout/list_item" />
 
 
        </androidx.constraintlayout.widget.ConstraintLayout>
