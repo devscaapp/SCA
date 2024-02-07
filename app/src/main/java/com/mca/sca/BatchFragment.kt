@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.FrameLayout
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -88,11 +90,47 @@ class BatchFragment : Fragment() {
 
         recycleView = fragmentView.findViewById(R.id.RecyclerList)
         recycleView.layoutManager=LinearLayoutManager(requireContext())
-
+        var batch: Spinner =fragmentView.findViewById(R.id.batch_spinner)
+        var year: Spinner =fragmentView.findViewById(R.id.year_spinner)
+        var viewBtn: Button =fragmentView.findViewById(R.id.view_button)
         userList = arrayListOf()
         db= FirebaseFirestore.getInstance()
 
-        db.collection("Users").get()
+        //Get Data for current User <TODO>
+        var batchData= "B.Tech"
+        var yearData= "2023"
+
+        //VIEW btn ON Click TASK
+        viewBtn.setOnClickListener {
+            batchData= batch.selectedItem.toString()
+            yearData=year.selectedItem.toString()
+
+
+            //clear LIST
+            userList.clear()
+            //Get data from firestore
+            db.collection("Users").whereEqualTo("batch",batchData).whereEqualTo("year",yearData).get()
+                .addOnSuccessListener {
+                    if(!it.isEmpty)
+                    {
+                        for(data in it.documents)
+                        {
+                            val stu: Student? = data.toObject(Student::class.java)
+                            if(stu!=null)
+                            {
+                                userList.add(stu)
+                            }
+                        }
+                        recycleView.adapter = MyAdapter(userList)
+                    }
+                }
+                .addOnFailureListener{
+                    Toast.makeText(requireContext(),it.toString(),Toast.LENGTH_SHORT).show()
+                }
+        }
+
+
+        db.collection("Users").whereEqualTo("batch",batchData).whereEqualTo("year",yearData).get()
             .addOnSuccessListener {
             if(!it.isEmpty)
             {

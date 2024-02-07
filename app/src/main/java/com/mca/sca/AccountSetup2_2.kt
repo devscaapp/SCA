@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
@@ -29,12 +30,14 @@ data class User(
     val phone:String?=null,
     val reg_no:String?=null,
     val rollno:String?=null,
+    val batch:String?=null,
+    val year:String?=null,
     val city:String?=null,
     val state:String?=null,
     val linkedln:String?=null,
     val github:String?=null,
     val verified:String?=null,
-    //val skill:String?=null,
+    val skill:List<String>?=null,
 )
 data class profileImg(
     val profile_imgurl: String?=null
@@ -69,6 +72,16 @@ class AccountSetup2_2 : AppCompatActivity() {
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
         val db = FirebaseFirestore.getInstance()
         storageRef = FirebaseStorage.getInstance()
+
+        //DATA from intent
+        val name = intent.getStringExtra("name")
+        val email = intent.getStringExtra("email")
+        val phone = intent.getStringExtra("phone")
+
+        //spinner DATA
+        var batch: Spinner =findViewById(R.id.batch_spin)
+        var year: Spinner =findViewById(R.id.year_spin)
+
 
         var galleryImage = registerForActivityResult(
             ActivityResultContracts.GetContent(),
@@ -116,7 +129,8 @@ class AccountSetup2_2 : AppCompatActivity() {
             var dp: String? = null//store img url
 
 
-
+            var batchData= batch.selectedItem.toString()
+            var yearData=year.selectedItem.toString()
 
             //Profile Image Upload
             storageRef.getReference("ProfileImage").child(userId)
@@ -160,13 +174,10 @@ class AccountSetup2_2 : AppCompatActivity() {
                             // Handle any errors
                             Log.e("FirestoreImage", "Error getting image URL: ${e.message}")
                         }
-
+                    //androidx.appcompat.widget.AppCompatEditText{7844be1 VFED..CL. ........ 93,910-987,1067 #7f0a00e6 app:id/editTextFullNameSU aid=1073741824}
 
                     //Data Upload
-                    val name = intent.getStringExtra("name")
-                    val email = intent.getStringExtra("email")
-                    val phone = intent.getStringExtra("phone")
-                    val user =User(userId,name,email, phone,reg_no,roll_no,city,state, linkedln, github,"N")
+                    val user =User(userId,name,email, phone,reg_no,roll_no,batchData,yearData,city,state, linkedln, github,"N")
 
                     db.collection("Users").document(userId).set(user)
                         .addOnSuccessListener {
@@ -195,6 +206,8 @@ class AccountSetup2_2 : AppCompatActivity() {
     val phone:String?=null,
     val reg_no:String?=null,
     val rollno:String?=null,
+    val batch:String?=null,
+    val year:String?=null,
     val city:String?=null,
     val state:String?=null,
     val linkedln:String?=null,
