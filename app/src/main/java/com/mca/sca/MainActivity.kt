@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_option2 -> replaceFragment(ResourcesFragment())
                 R.id.nav_option3 -> replaceFragment(BatchFragment())
                 R.id.nav_option4 -> replaceFragment(NotificationFragment())
-                R.id.nav_option4 -> replaceFragment(ProfileFragment())
+                R.id.nav_option5 -> replaceFragment(ProfileFragment())
 
                 else -> {
 
