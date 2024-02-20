@@ -7,10 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.mca.sca.Models.codewalkerevent
+import com.mca.sca.Models.Event
 import com.mca.sca.R
 
-class EventsAdapter(private val eventList: ArrayList<codewalkerevent>): RecyclerView.Adapter<EventsAdapter.MyViewHolder>() {
+class EventsAdapter(private val eventList: ArrayList<Event>): RecyclerView.Adapter<EventsAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val name : TextView = itemView.findViewById(R.id.name)

@@ -1,36 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="@dimen/_65sdp"
+    android:layout_height="@dimen/_59sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="70dp">
+
+    android:layout_margin="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/codewalkerzimg"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_80sdp"
-        android:src="@drawable/codewalkerximgdemo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/name">
-    </ImageView>
+        <ImageView
+            android:id="@+id/codewalkerzimg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/codewalkerximgdemo"
+            app:layout_constraintBottom_toTopOf="@id/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
-    <TextView
+        </ImageView>
+
+        <TextView
         android:id="@+id/name"
-        android:layout_width="@dimen/_100sdp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:hint="Codewalkerz"
+            android:textColor="@color/white"
+            android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/codewalkerzimg">
+        app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
 

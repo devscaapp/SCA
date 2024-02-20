@@ -13,7 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.mca.sca.Adapter.EventsAdapter
-import com.mca.sca.Models.codewalkerevent
+import com.mca.sca.Models.Event
 
 
 private const val ARG_PARAM1 = "param1"
@@ -24,7 +24,7 @@ class HomeFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var recyclerView:RecyclerView
-    private lateinit var eventList: ArrayList<codewalkerevent>
+    private lateinit var eventList: ArrayList<Event>
     private var db =Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,21 +40,7 @@ class HomeFragment : Fragment() {
     ): View? {
         return  inflater.inflate(R.layout.fragment_home, container, false)
 
-       /* *//*val tabLayout: TabLayout = view.findViewById(R.id.tabLayout)
-        val viewPager: ViewPager2 = view.findViewById(R.id.viewPager)*//*
-        val adapter = TabAdapter(this)
-
-        viewPager.adapter = adapter
-
-        // Customize the tab names here
-        val tabNames = arrayOf("Upcoming", "Previous")
-
-        // Set up TabLayoutMediator with customized tab names
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = tabNames[position]
-        }.attach()
-
-        return view*/
+      
     }
 
     companion object {
@@ -94,7 +80,7 @@ class HomeFragment : Fragment() {
                 if(!querySnapshot.isEmpty())
                 {
                     for(data in querySnapshot.documents){
-                        val event: codewalkerevent? = data.toObject(codewalkerevent::class.java)
+                        val event: Event? = data.toObject(Event::class.java)
                         if(event!=null)
                         {
                             eventList.add(event)
