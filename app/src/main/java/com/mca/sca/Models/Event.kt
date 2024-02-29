@@ -1,5 +1,7 @@
 package com.mca.sca.Models
 
+import com.google.firebase.firestore.DocumentId
+
 data class Event(
     val imageUrl: String? = null,
     val eventName: String?= null,

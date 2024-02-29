@@ -75,7 +75,7 @@ class sign_in : AppCompatActivity() {
                         {
                             Log.d(TAG, "signInWithEmail:success")
                             val user = auth.currentUser
-                            updateUI(user)
+                            //updateUI(user)
                         }
                         else
                         {

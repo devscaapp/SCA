@@ -4,7 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".forgotpassword">
+    tools:context=".VerificationMethod">
+
+    <androidx.constraintlayout.widget.Guideline
+
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="391dp"
+        android:layout_marginBottom="731dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="392dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="731dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_end="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="411dp"
+        android:layout_marginBottom="711dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="712dp"
+        android:layout_marginEnd="411dp"
+        android:layout_marginBottom="19dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_end="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 
 
@@ -18,95 +79,94 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/imageViewBackgroundVM"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
-        android:layout_marginTop="@dimen/_25sdp"
         android:src="@drawable/circle___back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
     <TextView
         android:id="@+id/textViewForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="56dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Verification"
         android:textColor="#000000"
-        android:textSize="@dimen/_29ssp"
+        android:textSize="@dimen/_30ssp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
-        app:layout_constraintStart_toStartOf="@+id/imageViewLogo"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBackgroundVM" />
 
     <TextView
         android:id="@+id/textViewForgotPassword2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Method"
         android:textColor="#000000"
-        android:textSize="@dimen/_29ssp"
+        android:textSize="@dimen/_30ssp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/textViewForgotPassword" />
+
 
     <TextView
         android:id="@+id/forgetpass_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/poppins_regular"
         android:text="Choose any one option"
         android:textSize="@dimen/_10ssp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.13"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/textViewForgotPassword2" />
-
 
     <LinearLayout
         android:id="@+id/linear_email_phone"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_130sdp"
-        android:layout_marginTop="12dp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn"
-        tools:layout_editor_absoluteX="-16dp">
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="28dp"
-            android:layout_marginRight="8dp">
+
+            android:layout_marginRight="8dp"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/btn_verify_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Email"
+                android:background="@drawable/btn_background2"
 
+                android:backgroundTint="@color/voilet"
                 android:drawableTop="@drawable/email_component"
-                android:textAllCaps="false"
-                android:padding="30dp"
                 android:gravity="center|bottom"
-                android:textStyle="bold"
+                android:padding="30dp"
+                android:text="Email"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="22sp"
-                android:backgroundTint="@color/voilet"
-                android:background="@drawable/btn_background2">
+                android:textStyle="bold">
 
             </Button>
 
@@ -116,24 +176,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginRight="28dp"
-            android:layout_marginLeft="8dp">
+            android:layout_marginLeft="8dp"
+
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/btn_verify_phone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Phone"
-                android:padding="30dp"
-                android:textAllCaps="false"
+                android:background="@drawable/btn_background2"
                 android:backgroundTint="#d5eeee"
                 android:drawableTop="@drawable/phone_componemt"
                 android:gravity="center|bottom"
-                android:textStyle="bold"
+                android:padding="30dp"
+                android:text="Phone"
+                android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="22sp"
-                android:background="@drawable/btn_background2">
+                android:textStyle="bold">
 
             </Button>
 
@@ -142,54 +202,23 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_180sdp"
-        android:gravity="bottom"
-        android:orientation="vertical"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear_email_phone"
-        app:layout_constraintVertical_bias="0.953"
-        tools:layout_editor_absoluteX="-16dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-
-            android:orientation="vertical"></LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".5"
-
-            android:orientation="vertical">
-
-
-            <Button
-                android:id="@+id/buttonNextVM"
-                android:layout_width="200dp"
-                android:layout_height="@dimen/_44sdp"
-                android:layout_marginStart="@dimen/_135sdp"
-                android:layout_marginEnd="@dimen/_26sdp"
-                android:background="@drawable/btn_background"
-                android:drawableRight="@drawable/next_logo"
-                android:paddingStart="@dimen/_50sdp"
-                android:paddingEnd="@dimen/_20sdp"
-                android:text="Next"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12ssp"
-                android:drawablePadding="@dimen/_10sdp"/>
-
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
+    <Button
+        android:id="@+id/buttonNextVM"
+        android:layout_width="200dp"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/btn_background"
+        android:drawableRight="@drawable/next_logo"
+        android:drawablePadding="@dimen/_10sdp"
+        android:paddingStart="@dimen/_50sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        android:text="Next"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

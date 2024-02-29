@@ -6,6 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".forgotpassword">
 
+    <androidx.constraintlayout.widget.Guideline
+
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="391dp"
+        android:layout_marginBottom="731dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="392dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="731dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_end="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="411dp"
+        android:layout_marginBottom="711dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="712dp"
+        android:layout_marginEnd="411dp"
+        android:layout_marginBottom="19dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_end="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <ImageView
         android:id="@+id/imageViewLogo"
@@ -17,212 +78,169 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/imageViewBackground"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
-        android:layout_marginTop="@dimen/_25sdp"
         android:src="@drawable/circle___back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
     <TextView
         android:id="@+id/textViewForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="56dp"
         android:fontFamily="@font/poppins_medium"
         android:text="Verify Phone"
         android:textColor="#000000"
         android:textSize="@dimen/_29ssp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.189"
-        app:layout_constraintStart_toStartOf="@+id/imageViewLogo"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBackground" />
+
 
     <TextView
         android:id="@+id/forgetpass_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/poppins_regular"
         android:text="Enter one time password"
         android:textSize="@dimen/_10ssp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.13"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/textViewForgotPassword" />
-
 
     <EditText
         android:id="@+id/otpEditText1"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/edit_text_bg"
         android:ems="10"
         android:gravity="center"
         android:hint="0"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintEnd_toStartOf="@id/otpEditText2"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn" />
 
     <EditText
         android:id="@+id/otpEditText2"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edit_text_bg"
         android:ems="10"
         android:gravity="center"
         android:hint="0"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toStartOf="@+id/otpEditText3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/otpEditText1"
-        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn"
-        app:layout_constraintVertical_bias="0.186" />
+        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn" />
 
     <EditText
         android:id="@+id/otpEditText3"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edit_text_bg"
         android:ems="10"
         android:gravity="center"
         android:hint="0"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toStartOf="@+id/otpEditText4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/otpEditText2"
-        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn"
-        app:layout_constraintVertical_bias="0.186" />
+        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn" />
 
     <EditText
         android:id="@+id/otpEditText4"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edit_text_bg"
         android:ems="10"
         android:gravity="center"
         android:hint="0"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toStartOf="@+id/otpEditText5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/otpEditText3"
-        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn"
-        app:layout_constraintVertical_bias="0.186" />
+        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn" />
 
 
     <EditText
         android:id="@+id/otpEditText5"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edit_text_bg"
         android:ems="10"
         android:gravity="center"
         android:hint="0"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toStartOf="@+id/otpEditText6"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/otpEditText4"
-        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn"
-        app:layout_constraintVertical_bias="0.186" />
+        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn" />
 
     <EditText
         android:id="@+id/otpEditText6"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edit_text_bg"
         android:ems="10"
         android:gravity="center"
         android:hint="0"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toEndOf="@+id/otpEditText5"
-        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn"
-        app:layout_constraintVertical_bias="0.186" />
+        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn" />
+
 
     <TextView
         android:id="@+id/TextView_ResendOTP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/poppins_regular"
         android:text="Resend OTP"
         android:textSize="@dimen/_10ssp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.907"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn"
-        app:layout_constraintVertical_bias="0.131" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/otpEditText6" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <Button
+        android:id="@+id/buttonNextVerify_phone"
         android:layout_width="0dp"
-        android:layout_height="@dimen/_180sdp"
-        android:gravity="bottom"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_background"
 
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-
-            android:orientation="vertical"></LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".5"
-
-            android:orientation="vertical">
-
-
-            <Button
-                android:id="@+id/buttonNextVerify_phone"
-                android:layout_width="350dp"
-                android:layout_height="@dimen/_44sdp"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_26sdp"
-                android:layout_marginEnd="@dimen/_26sdp"
-                android:background="@drawable/btn_background"
-
-                android:drawableRight="@drawable/next_logo"
-                android:foregroundGravity="center"
-                android:paddingStart="@dimen/_50sdp"
-                android:paddingEnd="@dimen/_40sdp"
-                android:text="Verify and continue"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12ssp" />
-
-
-        </LinearLayout>
-
-    </LinearLayout>
+        android:drawableRight="@drawable/next_logo"
+        android:foregroundGravity="center"
+        android:paddingStart="@dimen/_50sdp"
+        android:paddingEnd="@dimen/_40sdp"
+        android:text="Verify and continue"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
