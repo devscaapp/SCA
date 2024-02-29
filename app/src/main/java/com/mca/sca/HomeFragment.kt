@@ -13,7 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.mca.sca.Adapter.EventsAdapter
-import com.mca.sca.Models.codewalkerevent
+import com.mca.sca.Models.Event
 import com.yarolegovich.slidingrootnav.SlidingRootNav
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder
 
@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var recyclerView:RecyclerView
-    private lateinit var eventList: ArrayList<codewalkerevent>
+    private lateinit var eventList: ArrayList<Event>
     private var db =Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,7 +106,7 @@ class HomeFragment : Fragment() {
                 if(!querySnapshot.isEmpty())
                 {
                     for(data in querySnapshot.documents){
-                        val event: codewalkerevent? = data.toObject(codewalkerevent::class.java)
+                        val event: Event? = data.toObject(Event::class.java)
                         if(event!=null)
                         {
                             eventList.add(event)
