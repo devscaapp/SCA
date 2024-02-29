@@ -20,6 +20,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
+import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+
 
 data class User(
     val uid:String?=null,
@@ -150,16 +153,16 @@ class AccountSetup2_2 : AppCompatActivity() {
                     }
 
                     // ID Image Upload
-                    storageRef.getReference("IDverify").child(userId)
+                    /*storageRef.getReference("IDverify").child(userId)
                         .putFile(uri_id)
                         .addOnSuccessListener { task ->
                             task.metadata!!.reference!!.downloadUrl
                                 .addOnSuccessListener {
                                     //Image Uploaded to storage
-                                    /* val id=idImg(it.toString())
+                                    *//* val id=idImg(it.toString())
                             db.collection("Users").document(userId).set(id)
                                 .addOnSuccessListener {
-                                }*/
+                                }*//*
                                 }
                         }
                     val storageReference = Firebase.storage.reference.child("ProfileImage/${userId}")
@@ -187,7 +190,23 @@ class AccountSetup2_2 : AppCompatActivity() {
                         }
                         .addOnFailureListener {
                             Toast.makeText(this, "Data Upload Failed", Toast.LENGTH_SHORT).show()
-                        }
+                        }*/
+
+
+
+                    val themedButtonGroup = findViewById<ThemedToggleButtonGroup>(R.id.time_button_group)
+                    themedButtonGroup.setOnSelectListener { button: ThemedButton ->
+                        // handle selected button
+                        themedButtonGroup.isSelected
+                        val selectedButtons = themedButtonGroup.selectedButtons
+                        selectedButtons
+
+
+                    }
+                    // get the selected buttons:
+                    val selectedButtons = themedButtonGroup.selectedButtons
+                    Log.d("selectedButtons", "Buttons"+selectedButtons)
+
                     /*db.collection("Users").document(userId).update("profileImgUrl", dp)
                         .addOnSuccessListener {
                             // URL saved successfully
@@ -217,7 +236,7 @@ class AccountSetup2_2 : AppCompatActivity() {
             )*/
                 }
 
-
+        // button_Submit Lisener ENDS
         }
     }
 }

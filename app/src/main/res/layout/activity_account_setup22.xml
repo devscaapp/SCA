@@ -249,7 +249,7 @@
                 android:id="@+id/android"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_44sdp"
-                app:toggle_text="android"
+                app:toggle_text="Android Dev"
                 app:toggle_backgroundColor="@color/Themelightgreen"
                 app:toggle_selectedBackgroundColor="@color/themedarkgreen"/>
 

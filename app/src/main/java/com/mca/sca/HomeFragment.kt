@@ -14,6 +14,8 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.mca.sca.Adapter.EventsAdapter
 import com.mca.sca.Models.codewalkerevent
+import com.yarolegovich.slidingrootnav.SlidingRootNav
+import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder
 
 
 private const val ARG_PARAM1 = "param1"
@@ -88,6 +90,16 @@ class HomeFragment : Fragment() {
         eventList = arrayListOf()
 
         db= FirebaseFirestore.getInstance()
+
+        //Sliding Navigation Drawer
+//        private var slidindRootNav: SlidingRootNav? =null
+//
+//        slidindRootNav = SlidingRootNavBuilder()
+//            .withMenuOpened(false)
+//            .withContentClickableWhenMenuOpened(true)
+//            .withSavedState(savedInstanceState)
+//            .withMenuLayout(R.layout.layout_drawer)
+//            .inject()
 
         db.collection("Event").document("ppsHwPZMgo2iauSGeJPI").collection("previous").get()
             .addOnSuccessListener{ querySnapshot ->

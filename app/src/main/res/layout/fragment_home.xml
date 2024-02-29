@@ -7,6 +7,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--    android:id="@+id/appBarLayουt"-->
+<!--    ancroid: Layout with="maton parent"-->
+<!--    android! Layout_height="wrap_content"-->
+<!--    aroid: theme="style/Then Overlay AppComust.Dark.ActionBar"-->
+<!--    eps: Layout constraintend toEndo="arent"-->
+<!--    ac: Layout.constraintStart toStart="parent"-->
+<!--    ape: Layout constraintTop_toTopOf="parent"-->
+<!--    android:animateLayoutChanges="true">-->
+<!--    <androidx.appcompat.widget.Teolbar-->
+<!--        android:id="@+id/toolost"-->
+<!--        android:layout width="match_parent"-->
+<!--        android:layout height="?attr/actionBansize"-->
+<!--        android:background-"?attr/colo-Primary-->
+<!--app: layout scrollFlags="scrolllencerAlways"-->
+<!--androin: thene style: Themeüverlay AppCompat.Derk ActionBar-->
+<!--app:pocup Theme="@style/Theme Overlay AppCompat.Light">-->
+
+    <ImageView
+        android:id="@+id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/hamburger_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageViewLogo"
