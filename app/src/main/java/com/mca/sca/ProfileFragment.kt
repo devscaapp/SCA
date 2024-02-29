@@ -65,20 +65,48 @@ class ProfileFragment : Fragment() {
                     val city= it.data?.get("city")?.toString();
                     val state= it.data?.get("state")?.toString();
                     val roll= it.data?.get("rollno")?.toString();
-                    linkLinkedin= it.data?.get("linkedln")?.toString().toString()
-                    linkgit= it.data?.get("github")?.toString().toString()
+//                    linkLinkedin= it.data?.get("linkedln")?.toString().toString()
+//                    linkgit= it.data?.get("github")?.toString().toString()
                     Log.d(TAG, "UID123 data: $linkLinkedin GIT123$linkgit")
                     nameTextView.setText(name)
                     placeTextView.setText(city+ ", "+ state)
                     rollTextView.setText(roll)
-
                     }
             }
             .addOnFailureListener{
                 Toast.makeText(requireContext(),it.toString(),Toast.LENGTH_SHORT).show()
             }
+        userLinkedinBtn.setOnClickListener {
+            docRef.get()
+                .addOnSuccessListener {
+                    if(it!=null){
+                    linkLinkedin= it.data?.get("linkedln")?.toString().toString()
+                        val uri = Uri.parse(linkLinkedin) // missing 'http://' will cause crashed
+                        val intent = Intent(Intent.ACTION_VIEW, uri)
+                        startActivity(intent)
+                    }
+                }
+                .addOnFailureListener{
+                    Toast.makeText(requireContext(),it.toString(),Toast.LENGTH_SHORT).show()
+                }
 
-        /*userLinkedinBtn
+        }
+        userGitBtn.setOnClickListener {
+            docRef.get()
+                .addOnSuccessListener {
+                    if(it!=null){
+                        linkgit= it.data?.get("github")?.toString().toString()
+                        val uri = Uri.parse(linkgit) // missing 'http://' will cause crashed
+                        val intent = Intent(Intent.ACTION_VIEW, uri)
+                        startActivity(intent)
+                    }
+                }
+                .addOnFailureListener{
+                    Toast.makeText(requireContext(),it.toString(),Toast.LENGTH_SHORT).show()
+                }
+
+        }
+        /* //URL Opening
         val uri = Uri.parse("http://www.google.com") // missing 'http://' will cause crashed
         val intent = Intent(Intent.ACTION_VIEW, uri)
         startActivity(intent)*/
