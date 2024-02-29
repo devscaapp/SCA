@@ -85,8 +85,8 @@ class BatchFragment : Fragment() {
         val fragmentContainer = fragmentView.findViewById<FrameLayout>(R.id.fragment_container)
 
         // Inflate the activity layout and add it to the fragment container
-        val activityLayout = inflater.inflate(R.layout.activity_batch_recycler, fragmentContainer, false)
-        fragmentContainer.addView(activityLayout)
+        //val activityLayout = inflater.inflate(R.layout.activity_batch_recycler, fragmentContainer, false)
+        //fragmentContainer.addView(activityLayout)
 
         recycleView = fragmentView.findViewById(R.id.RecyclerList)
         recycleView.layoutManager=LinearLayoutManager(requireContext())
