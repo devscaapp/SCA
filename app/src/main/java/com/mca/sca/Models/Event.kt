@@ -6,5 +6,7 @@ data class Event(
     val imageUrl: String? = null,
     val eventName: String?= null,
     val details: String?=null,
-    val action: String?=null
+    val action: String?=null,
+    val eventType: String?=null,
+    val sr_no: String?=null
 )

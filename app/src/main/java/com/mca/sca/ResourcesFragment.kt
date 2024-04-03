@@ -1,10 +1,12 @@
 package com.mca.sca
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +23,9 @@ class ResourcesFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var mcaResources: CardView
+    private lateinit var btechResources: CardView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,7 +39,24 @@ class ResourcesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_resources, container, false)
+        val view = inflater.inflate(R.layout.fragment_resources, container, false)
+
+        mcaResources = view.findViewById(R.id.mcaResources)
+        btechResources = view.findViewById(R.id.btechResources)
+
+        // Set click listener for MCA resources card
+        mcaResources.setOnClickListener {
+            // Start MCAResources activity
+            startActivity(Intent(activity, mcaResources::class.java))
+        }
+
+        // Set click listener for B.Tech resources card
+        btechResources.setOnClickListener {
+            // Start BTechResources activity
+            startActivity(Intent(activity, btechResources::class.java))
+        }
+
+        return view
     }
 
     companion object {

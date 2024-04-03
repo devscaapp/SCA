@@ -205,7 +205,15 @@ class AccountSetup2_2 : AppCompatActivity() {
                     }
                     // get the selected buttons:
                     val selectedButtons = themedButtonGroup.selectedButtons
-                    Log.d("selectedButtons", "Buttons"+selectedButtons)
+
+                    val skillset = mutableListOf<String>()
+
+                    for (skills in selectedButtons) {
+                        skillset.add(skills.text)
+                    }
+
+                    Log.d("selectedButtons", skillset.toString())
+                    //Log.d("selectedButtons", "Buttons"+selectedButtons)
 
                     /*db.collection("Users").document(userId).update("profileImgUrl", dp)
                         .addOnSuccessListener {

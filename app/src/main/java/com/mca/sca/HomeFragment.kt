@@ -1,10 +1,13 @@
 package com.mca.sca
 
+import android.content.Intent
+import android.content.Intent.getIntent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -86,10 +89,24 @@ class HomeFragment : Fragment() {
         recyclerView= view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-
+        var eventType: String? = "0"
         eventList = arrayListOf()
 
         db= FirebaseFirestore.getInstance()
+
+        val upcomingEvent: ImageView= view.findViewById(R.id.imageView2)
+        val previousEvent: ImageView= view.findViewById(R.id.imageView3)
+
+        upcomingEvent.setOnClickListener{
+            val intent = Intent(activity, upcomingEvent::class.java)
+            activity?.startActivity(intent)
+
+        }
+
+        previousEvent.setOnClickListener{
+            val intent = Intent(activity, previousEvent::class.java)
+            startActivity(intent)
+        }
 
         //Sliding Navigation Drawer
 //        private var slidindRootNav: SlidingRootNav? =null
@@ -101,7 +118,7 @@ class HomeFragment : Fragment() {
 //            .withMenuLayout(R.layout.layout_drawer)
 //            .inject()
 
-        db.collection("Event").document("ppsHwPZMgo2iauSGeJPI").collection("previous").get()
+        db.collection("Event").whereEqualTo("eventType", eventType).orderBy("sr_no").get()
             .addOnSuccessListener{ querySnapshot ->
                 if(!querySnapshot.isEmpty())
                 {
@@ -112,7 +129,18 @@ class HomeFragment : Fragment() {
                             eventList.add(event)
                         }
                     }
-                    recyclerView.adapter=EventsAdapter(eventList)
+                    var adapter = EventsAdapter(eventList)
+                    recyclerView.adapter=adapter
+                    adapter.setOnItemClickListener(object : EventsAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int){
+
+                            val intent = Intent(activity, EventMainPage::class.java)
+                            intent.putExtra("evenName", eventList[position].eventName)
+                            intent.putExtra("imageUrl", eventList[position].imageUrl)
+                            intent.putExtra("details", eventList[position].details)
+                            activity?.startActivity(intent)
+                        }
+                    })
                     Log.d("RecyclerView", "Adapter set with ${eventList.size} items.")
                 } else {
                     // Log for debugging

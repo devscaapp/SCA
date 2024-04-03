@@ -12,15 +12,29 @@ import com.mca.sca.R
 
 class EventsAdapter(private val eventList: ArrayList<Event>): RecyclerView.Adapter<EventsAdapter.MyViewHolder>() {
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    private lateinit var mListener: onItemClickListener
+
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
+    }
+    fun setOnItemClickListener(listener: onItemClickListener){
+        mListener = listener
+    }
+    class MyViewHolder(itemView: View, listener: onItemClickListener): RecyclerView.ViewHolder(itemView){
         val name : TextView = itemView.findViewById(R.id.name)
         val image : ImageView = itemView.findViewById(R.id.codewalkerzimg)
+
+        init{
+            itemView.setOnClickListener{
+                listener.onItemClick(adapterPosition)
+            }
+        }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.codewalkerz_listitem,parent,false)
-        return MyViewHolder(itemView)
+        return MyViewHolder(itemView, mListener)
     }
 
     override fun getItemCount(): Int {

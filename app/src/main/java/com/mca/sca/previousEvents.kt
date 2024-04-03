@@ -26,6 +26,8 @@ class previousEvents : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_previous_events)
 
+        var eventType: String? = "1"
+
 
         db= FirebaseFirestore.getInstance()
         recyclerView= findViewById(R.id.recyclerViewPastEvent)
@@ -33,11 +35,9 @@ class previousEvents : AppCompatActivity() {
 
 
         eventList = arrayListOf()
-
         db= FirebaseFirestore.getInstance()
 
-        db.collection("Event").document("ppsHwPZMgo2iauSGeJPI")
-            .collection("previous").get()
+        db.collection("Event").whereEqualTo("eventType", eventType).orderBy("sr_no").get()
             .addOnSuccessListener{ querySnapshot ->
 
                // val test = querySnapshot.toObjects(Event::class.java
@@ -76,6 +76,7 @@ class previousEvents : AppCompatActivity() {
             }
             .addOnFailureListener{
                 Toast.makeText(this,it.toString(), Toast.LENGTH_SHORT).show()
+                Log.d("FireStore", it.toString())
             }
     }
 }

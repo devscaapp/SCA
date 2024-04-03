@@ -1,5 +1,6 @@
 package com.mca.sca
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.mca.sca.Adapter.PastEventsAdapter
+import com.mca.sca.Adapter.UpcomingEventsAdapter
 import com.mca.sca.Models.Event
 
 class upcomingEvents : AppCompatActivity() {
@@ -31,11 +33,12 @@ class upcomingEvents : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
 
+        var eventType: String? = "2"
         eventList = arrayListOf()
 
         db= FirebaseFirestore.getInstance()
 
-        db.collection("Event").document("ppsHwPZMgo2iauSGeJPI").collection("Upcoming").get()
+        db.collection("Event").whereEqualTo("eventType", eventType).orderBy("sr_no").get()
             .addOnSuccessListener{ querySnapshot ->
                 if(!querySnapshot.isEmpty())
                 {
@@ -47,7 +50,19 @@ class upcomingEvents : AppCompatActivity() {
                             eventList.add(event)
                         }
                     }
-                    recyclerView.adapter= PastEventsAdapter(eventList)
+                    var adapter = UpcomingEventsAdapter(eventList)
+                    recyclerView.adapter= adapter
+                    adapter.setOnItemClickListener(object: UpcomingEventsAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            val intent = Intent(this@upcomingEvents, EventMainPage::class.java)
+                            intent.putExtra("evenName", eventList[position].eventName)
+                            intent.putExtra("imageUrl", eventList[position].imageUrl)
+                            intent.putExtra("details", eventList[position].details)
+                            startActivity(intent)
+                        }
+
+                    })
+
                     Log.d("RecyclerView", "Adapter set with ${eventList.size} items.")
                 } else {
                     // Log for debugging
