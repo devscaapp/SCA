@@ -1,6 +1,7 @@
 package com.mca.sca
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -36,11 +37,23 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding : HomeBinding
     private var db=Firebase.firestore
     lateinit var storage: FirebaseStorage
+    private lateinit var auth: FirebaseAuth
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Initialize Firebase Auth
+        auth = FirebaseAuth.getInstance()
+        // Check if user is authenticated
+        if (auth.currentUser == null) {
+            // User is not authenticated, navigate to Register activity
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
+            finish()
+            return // Ensure the rest of the onCreate method does not run
+        }
 
         binding= HomeBinding.inflate(layoutInflater)
         setContentView(binding.root)

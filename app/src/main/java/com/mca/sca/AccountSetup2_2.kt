@@ -97,8 +97,7 @@ class AccountSetup2_2 : AppCompatActivity() {
         button_Upload_profilepic.setOnClickListener {
             galleryImage.launch("image/*")
 
-            /*val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, PICK_IMAGE_REQUEST)*/
+
         }
 
         var galleryImage_id = registerForActivityResult(

@@ -175,7 +175,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextEmailSU" />
 
     <EditText
-        android:id="@+id/editTextPassowrdSU"
+        android:id="@+id/editTextPasswordSU"
         android:layout_width="0dp"
         android:layout_height="@dimen/_40sdp"
         android:layout_marginTop="15dp"
@@ -189,6 +189,20 @@
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumberSU" />
 
+    <EditText
+        android:id="@+id/editTextConfirmPasswordSU"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/custon_input"
+        android:drawableLeft="@drawable/custom_password_icon"
+        android:drawablePadding="15dp"
+        android:hint="ConfirmPassword"
+        android:inputType="textPassword"
+        android:padding="@dimen/_5sdp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordSU" />
     <Button
         android:id="@+id/buttonRegisterSU"
         android:layout_width="0dp"
@@ -201,6 +215,16 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintHorizontal_bias="0.252"
         app:layout_constraintStart_toStartOf="@+id/guideline4" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
