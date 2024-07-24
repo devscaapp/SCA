@@ -128,20 +128,20 @@
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/textViewRegisterSU" />
 
-    <EditText
-        android:id="@+id/editTextFullNameSU"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/custon_input"
-        android:drawableLeft="@drawable/custom_person_icon"
-        android:drawablePadding="15dp"
-        android:hint="Full Name"
-        android:inputType="text"
-        android:padding="@dimen/_5sdp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn" />
+<!--    <EditText-->
+<!--        android:id="@+id/editTextFullNameSU"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="@dimen/_40sdp"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:background="@drawable/custon_input"-->
+<!--        android:drawableLeft="@drawable/custom_person_icon"-->
+<!--        android:drawablePadding="15dp"-->
+<!--        android:hint="Full Name"-->
+<!--        android:inputType="text"-->
+<!--        android:padding="@dimen/_5sdp"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/guideline3"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/guideline4"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn" />-->
 
 
     <EditText
@@ -157,22 +157,22 @@
         android:padding="@dimen/_5sdp"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFullNameSU" />
+        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn" />
 
-    <EditText
-        android:id="@+id/editTextPhoneNumberSU"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/custon_input"
-        android:drawableLeft="@drawable/custom_phone_icon"
-        android:drawablePadding="15dp"
-        android:hint="Phone Number"
-        android:inputType="phone"
-        android:padding="@dimen/_5sdp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmailSU" />
+<!--    <EditText-->
+<!--        android:id="@+id/editTextPhoneNumberSU"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="@dimen/_40sdp"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:background="@drawable/custon_input"-->
+<!--        android:drawableLeft="@drawable/custom_phone_icon"-->
+<!--        android:drawablePadding="15dp"-->
+<!--        android:hint="Phone Number"-->
+<!--        android:inputType="phone"-->
+<!--        android:padding="@dimen/_5sdp"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/guideline3"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/guideline4"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/editTextEmailSU" />-->
 
     <EditText
         android:id="@+id/editTextPasswordSU"
@@ -187,7 +187,7 @@
         android:padding="@dimen/_5sdp"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumberSU" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailSU" />
 
     <EditText
         android:id="@+id/editTextConfirmPasswordSU"

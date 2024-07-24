@@ -15,11 +15,9 @@ class SignUP : AppCompatActivity() {
     private lateinit var image_view_background: ImageView
     private lateinit var text_view_login: TextView
     private lateinit var edit_text_email: EditText
-    private lateinit var edit_text_phone_number: EditText
     private lateinit var edit_text_password: EditText
     private lateinit var edit_text_confirm_password: EditText
     private lateinit var button_register: Button
-    private lateinit var edit_text_fullname: EditText
     private lateinit var progressBar: ProgressBar
     private lateinit var auth: FirebaseAuth
 
@@ -30,25 +28,21 @@ class SignUP : AppCompatActivity() {
         image_view_background = findViewById(R.id.imageViewBackgroundSU)
         text_view_login = findViewById(R.id.textViewLoginSU)
         edit_text_email = findViewById(R.id.editTextEmailSU)
-        edit_text_phone_number = findViewById(R.id.editTextPhoneNumberSU)
         button_register = findViewById(R.id.buttonRegisterSU)
         edit_text_password = findViewById(R.id.editTextPasswordSU)
         edit_text_confirm_password = findViewById(R.id.editTextConfirmPasswordSU)
-        edit_text_fullname = findViewById(R.id.editTextFullNameSU)
         progressBar = findViewById(R.id.progressBar)
 
         // Initialize Firebase Auth
         auth = Firebase.auth
 
         button_register.setOnClickListener {
-            val name = edit_text_fullname.text.toString().trim()
             val email = edit_text_email.text.toString().trim()
-            val phone = edit_text_phone_number.text.toString().trim()
             val password = edit_text_password.text.toString().trim()
             val confirmPassword = edit_text_confirm_password.text.toString().trim()
 
-            if (validateInputs(name, email, phone, password, confirmPassword)) {
-                registerUser(name, email, phone, password)
+            if (validateInputs(email, password, confirmPassword)) {
+                registerUser(email, password)
             }
         }
 
@@ -57,19 +51,13 @@ class SignUP : AppCompatActivity() {
             startActivity(intent)
         }
 
-        image_view_background.setOnClickListener{
-            val intent = Intent(this , Register::class.java)
+        image_view_background.setOnClickListener {
+            val intent = Intent(this, Register::class.java)
             startActivity(intent)
         }
     }
 
-    private fun validateInputs(name: String, email: String, phone: String, password: String, confirmPassword: String): Boolean {
-        if (name.isEmpty()) {
-            edit_text_fullname.error = "Full name is required"
-            edit_text_fullname.requestFocus()
-            return false
-        }
-
+    private fun validateInputs(email: String, password: String, confirmPassword: String): Boolean {
         if (email.isEmpty()) {
             edit_text_email.error = "Email is required"
             edit_text_email.requestFocus()
@@ -79,12 +67,6 @@ class SignUP : AppCompatActivity() {
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             edit_text_email.error = "Please enter a valid email"
             edit_text_email.requestFocus()
-            return false
-        }
-
-        if (phone.isEmpty()) {
-            edit_text_phone_number.error = "Phone number is required"
-            edit_text_phone_number.requestFocus()
             return false
         }
 
@@ -109,7 +91,7 @@ class SignUP : AppCompatActivity() {
         return true
     }
 
-    private fun registerUser(name: String, email: String, phone: String, password: String) {
+    private fun registerUser(email: String, password: String) {
         progressBar.visibility = ProgressBar.VISIBLE
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -118,32 +100,22 @@ class SignUP : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     auth.currentUser?.sendEmailVerification()
                         ?.addOnSuccessListener {
-                            Toast.makeText(baseContext, "Please verify your account", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(baseContext, "Verify your account and login", Toast.LENGTH_LONG).show()
                             val user = auth.currentUser
-                            updateUI(user, name, email, phone)
+                            //updateUI(user)
                         }
                         ?.addOnFailureListener {
                             Toast.makeText(baseContext, "Email Verification Failed", Toast.LENGTH_SHORT).show()
                         }
                 } else {
                     // If sign in fails, display a message to the user.
-                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "Verificaiton link sent please verify and login.", Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
-    private fun updateUI(user: FirebaseUser?, name: String, email: String, phone: String) {
-        val intent = Intent(this, AccountSetup2_2::class.java)
-        intent.putExtra("name", name)
-        intent.putExtra("email", email)
-        intent.putExtra("phone", phone)
+    private fun updateUI(user: FirebaseUser?) {
+        val intent = Intent(this, sign_in::class.java)
         startActivity(intent)
-        val galleryIntent = Intent(Intent.ACTION_PICK)
-        galleryIntent.type = "image/*"
     }
 }
-
-
-
-
-

@@ -184,16 +184,49 @@
         app:layout_constraintEnd_toEndOf="@id/guideline3">
 
 
-    <EditText
+
+        <EditText
+            android:id="@+id/UserName"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/custon_input"
+            android:drawableLeft="@drawable/custom_register_icon"
+            android:drawablePadding="15dp"
+            android:hint="Enter Your Name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="15dp"
+            android:textColor="@color/TextColor"
+            />
+        <EditText
+            android:id="@+id/PhoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/custon_input"
+            android:drawableLeft="@drawable/custom_register_icon"
+            android:drawablePadding="15dp"
+            android:hint="Enter you phone number"
+            app:layout_constraintTop_toBottomOf="@id/UserName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15dp"
+            android:padding="15dp"
+            android:textColor="@color/TextColor"
+            />
+
+            <EditText
                 android:id="@+id/RegistrationNumber"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custon_input"
                 android:drawableLeft="@drawable/custom_register_icon"
                 android:drawablePadding="15dp"
-                android:hint="Registration Number"
-                app:layout_constraintTop_toTopOf="parent"
+                android:hint="Enter Your Registration Number"
+                app:layout_constraintTop_toBottomOf="@id/PhoneNumber"
                 app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:padding="15dp"
                 android:textColor="@color/TextColor"
@@ -440,6 +473,17 @@
 
 
         app:layout_constraintVertical_bias="0.886" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 

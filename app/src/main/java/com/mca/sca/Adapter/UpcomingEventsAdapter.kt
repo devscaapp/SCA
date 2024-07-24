@@ -18,11 +18,11 @@ class UpcomingEventsAdapter(private val eventList: ArrayList<Event>): RecyclerVi
         fun onItemClick(position: Int)
     }
 
-    fun setOnItemClickListener(listener: UpcomingEventsAdapter.onItemClickListener){
+    fun setOnItemClickListener(listener: onItemClickListener){
         mListener = listener
     }
 
-    class MyViewHolder(itemView: View, listener: UpcomingEventsAdapter.onItemClickListener): RecyclerView.ViewHolder(itemView){
+    class MyViewHolder(itemView: View, listener: onItemClickListener): RecyclerView.ViewHolder(itemView){
         val name : TextView = itemView.findViewById(R.id.pastEventName)
         val image : ImageView = itemView.findViewById(R.id.pastEventImage)
 
@@ -36,7 +36,7 @@ class UpcomingEventsAdapter(private val eventList: ArrayList<Event>): RecyclerVi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.eventslistitem,parent,false)
-        return UpcomingEventsAdapter.MyViewHolder(itemView, mListener)
+        return MyViewHolder(itemView, mListener)
     }
 
     override fun getItemCount(): Int {

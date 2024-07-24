@@ -17,8 +17,8 @@ class EventsAdapter(private val eventList: ArrayList<Event>): RecyclerView.Adapt
     interface onItemClickListener{
         fun onItemClick(position: Int)
     }
-    fun setOnItemClickListener(listener: onItemClickListener){
-        mListener = listener
+    fun setOnItemClickListener(listener: Any){
+        mListener = listener as onItemClickListener
     }
     class MyViewHolder(itemView: View, listener: onItemClickListener): RecyclerView.ViewHolder(itemView){
         val name : TextView = itemView.findViewById(R.id.name)

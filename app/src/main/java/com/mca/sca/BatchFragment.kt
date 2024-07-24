@@ -1,7 +1,6 @@
 package com.mca.sca
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,74 +8,25 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.mca.sca.Adapter.MyAdapter
 import com.mca.sca.Models.Student
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [BatchFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-/*
 class BatchFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_batch, container, false)
-    }
-
-    companion object {
-        */
-/**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment BatchFragment.
-         *//*
-
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            BatchFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
-}*/
-
-class BatchFragment : Fragment() {
-    private lateinit var recycleView:RecyclerView
+    private lateinit var recycleView: RecyclerView
     private lateinit var userList: ArrayList<Student>
-    private var db =Firebase.firestore
+    private var db = Firebase.firestore
+    private lateinit var batchSpinner: Spinner
+    private lateinit var yearSpinner: Spinner
+    private lateinit var viewBtn: Button
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -84,72 +34,96 @@ class BatchFragment : Fragment() {
         val fragmentView = inflater.inflate(R.layout.fragment_batch, container, false)
         val fragmentContainer = fragmentView.findViewById<FrameLayout>(R.id.fragment_container)
 
-        // Inflate the activity layout and add it to the fragment container
-        //val activityLayout = inflater.inflate(R.layout.activity_batch_recycler, fragmentContainer, false)
-        //fragmentContainer.addView(activityLayout)
-
         recycleView = fragmentView.findViewById(R.id.RecyclerList)
-        recycleView.layoutManager=LinearLayoutManager(requireContext())
-        var batch: Spinner =fragmentView.findViewById(R.id.batch_spinner)
-        var year: Spinner =fragmentView.findViewById(R.id.year_spinner)
-        var viewBtn: Button =fragmentView.findViewById(R.id.view_button)
+        recycleView.layoutManager = LinearLayoutManager(requireContext())
+        batchSpinner = fragmentView.findViewById(R.id.batch_spinner)
+        yearSpinner = fragmentView.findViewById(R.id.year_spinner)
+        viewBtn = fragmentView.findViewById(R.id.view_button)
         userList = arrayListOf()
-        db= FirebaseFirestore.getInstance()
+        db = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
 
-        //Get Data for current User <TODO>
-        var batchData= "B.Tech"
-        var yearData= "2023"
-
-        //VIEW btn ON Click TASK
-        viewBtn.setOnClickListener {
-            batchData= batch.selectedItem.toString()
-            yearData=year.selectedItem.toString()
-
-
-            //clear LIST
-            userList.clear()
-            //Get data from firestore
-            db.collection("Users").whereEqualTo("batch",batchData).whereEqualTo("year",yearData).get()
-                .addOnSuccessListener {
-                    if(!it.isEmpty)
-                    {
-                        for(data in it.documents)
-                        {
-                            val stu: Student? = data.toObject(Student::class.java)
-                            if(stu!=null)
-                            {
-                                userList.add(stu)
-                            }
-                        }
-                        recycleView.adapter = MyAdapter(userList)
-                    }
-                }
-                .addOnFailureListener{
-                    Toast.makeText(requireContext(),it.toString(),Toast.LENGTH_SHORT).show()
-                }
+        // Fetch current user's batch and year
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            fetchUserBatchAndYear(currentUser.uid)
+        } else {
+            Toast.makeText(requireContext(), "User not logged in", Toast.LENGTH_SHORT).show()
         }
 
+        viewBtn.setOnClickListener {
+            val batchData = batchSpinner.selectedItem.toString()
+            val yearData = yearSpinner.selectedItem.toString()
 
-        db.collection("Users").whereEqualTo("batch",batchData).whereEqualTo("year",yearData).get()
-            .addOnSuccessListener {
-            if(!it.isEmpty)
-            {
-                for(data in it.documents)
-                {
-                    val stu: Student? = data.toObject(Student::class.java)
-                    if(stu!=null)
-                    {
-                        userList.add(stu)
-                    }
-                }
-                recycleView.adapter = MyAdapter(userList)
-            }
-            }
-            .addOnFailureListener{
-                Toast.makeText(requireContext(),it.toString(),Toast.LENGTH_SHORT).show()
-            }
+            // Clear list
+            userList.clear()
+            // Fetch data from Firestore
+            fetchBatchDetails(batchData, yearData)
+        }
 
         return fragmentView
     }
-}
 
+    private fun fetchUserBatchAndYear(userId: String) {
+        val docRef = db.collection("Users").document(userId)
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    val batchData = document.getString("batch") ?: "B.Tech"
+                    val yearData = document.getString("year") ?: "2023"
+
+                    // Set Spinner values
+                    setSpinnerValue(batchSpinner, batchData)
+                    setSpinnerValue(yearSpinner, yearData)
+
+                    // Fetch and display batch details
+                    fetchBatchDetails(batchData, yearData)
+                } else {
+                    Toast.makeText(requireContext(), "User data not found", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), "Failed to fetch user data", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun setSpinnerValue(spinner: Spinner, value: String) {
+        val adapter = spinner.adapter
+        for (i in 0 until adapter.count) {
+            if (adapter.getItem(i) == value) {
+                spinner.setSelection(i)
+                break
+            }
+        }
+    }
+
+    private fun fetchBatchDetails(batch: String, year: String) {
+        db.collection("Users").whereEqualTo("batch", batch).whereEqualTo("year", year).get()
+            .addOnSuccessListener {
+                if (!it.isEmpty) {
+                    for (data in it.documents) {
+                        val stu: Student? = data.toObject(Student::class.java)
+                        if (stu != null) {
+                            // Convert name and state to uppercase
+                            stu.name = stu.name?.uppercase()
+                            stu.city = stu.city?.uppercase()
+                            stu.state = stu.state?.uppercase()
+                            userList.add(stu)
+                        }
+                    }
+                    // Sort by roll number in ascending order
+                    userList.sortBy { student -> student.rollno?.toIntOrNull() }
+                    recycleView.adapter = MyAdapter(userList)
+                    recycleView.adapter?.notifyDataSetChanged()
+                } else {
+                    // Set empty adapter when no data is available
+                    recycleView.adapter = MyAdapter(ArrayList())
+                    recycleView.adapter?.notifyDataSetChanged()
+                    Toast.makeText(requireContext(), "No data available for this batch", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+            }
+    }
+}
