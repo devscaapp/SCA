@@ -1,6 +1,7 @@
 package com.mca.sca
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,13 +40,24 @@ class ResourcesFragment : Fragment() {
         // Set click listener for MCA resources card
         mcaResources.setOnClickListener {
             // Start MCAResources activity
-            startActivity(Intent(activity, mcaResources::class.java))
+            //startActivity(Intent(activity, mcaResources::class.java))
+            val registerlink = "https://drive.google.com/drive/folders/1nyitQX7OKk1KIzpHRywBfY8LKPJl8_Gw?usp=sharing"
+            registerlink?.let {
+
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(registerlink))
+                startActivity(intent)
+            }
         }
 
         // Set click listener for B.Tech resources card
         btechResources.setOnClickListener {
             // Start BTechResources activity
-            startActivity(Intent(activity, btechResources::class.java))
+            //startActivity(Intent(activity, btechResources::class.java))
+            val registerlink = "https://drive.google.com/drive/folders/1qmtRpqoW7MiH9F5eI6M6aGOfLSe4STAo?usp=sharing"
+            registerlink?.let {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(registerlink))
+                startActivity(intent)
+            }
         }
 
         return view

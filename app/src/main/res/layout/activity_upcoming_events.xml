@@ -123,8 +123,8 @@
 
     <ImageView
         android:id="@+id/imageViewBackground"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
         android:src="@drawable/circle___back"
         app:layout_constraintEnd_toStartOf="@+id/textRegister"
         app:layout_constraintHorizontal_bias="0.0"

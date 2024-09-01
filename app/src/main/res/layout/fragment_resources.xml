@@ -91,7 +91,8 @@
             android:gravity="center"
             android:text="Resources"
             android:textColor="@color/black"
-            android:textSize="@dimen/_30ssp"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_20ssp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -190,7 +191,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
 
-                        android:src="@drawable/sem1_svg" />
+                        android:src="@drawable/mca" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -210,7 +211,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
 
-                        android:src="@drawable/sem2_svg" />
+                        android:src="@drawable/btech" />
 
                 </androidx.cardview.widget.CardView>
 

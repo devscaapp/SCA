@@ -94,9 +94,10 @@ class HomeFragment : Fragment() {
                     adapter.setOnItemClickListener(object : EventsAdapter.onItemClickListener {
                         override fun onItemClick(position: Int) {
                             val intent = Intent(activity, EventMainPage::class.java)
-                            intent.putExtra("evenName", eventList[position].eventName)
+                            intent.putExtra("eventName", eventList[position].eventName)
                             intent.putExtra("imageUrl", eventList[position].imageUrl)
                             intent.putExtra("details", eventList[position].details)
+                            intent.putExtra("action", eventList[position].action )
                             activity?.startActivity(intent)
                         }
                     })

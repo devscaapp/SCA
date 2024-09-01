@@ -55,9 +55,10 @@ class upcomingEvents : AppCompatActivity() {
                     adapter.setOnItemClickListener(object: UpcomingEventsAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
                             val intent = Intent(this@upcomingEvents, EventMainPage::class.java)
-                            intent.putExtra("evenName", eventList[position].eventName)
+                            intent.putExtra("eventName", eventList[position].eventName)
                             intent.putExtra("imageUrl", eventList[position].imageUrl)
                             intent.putExtra("details", eventList[position].details)
+                            intent.putExtra("action", eventList[position].action)
                             startActivity(intent)
                         }
 

@@ -72,7 +72,23 @@ class AccountSetup2_2 : AppCompatActivity() {
         val currentUser = FirebaseAuth.getInstance().currentUser
         val email = currentUser?.email
 
-        //spinner DATA
+        // Check if the user account is already set up
+        db.collection("Users").document(userId).get().addOnSuccessListener { document ->
+            if (document.exists()) {
+                val isAccountSetupComplete = document.getBoolean("accountSetupComplete") ?: false
+                if (isAccountSetupComplete) {
+                    // If account setup is complete, redirect to MainActivity
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish() // Finish current activity
+                }
+            }
+        }.addOnFailureListener {
+            // Handle any errors
+            Toast.makeText(this, "Failed to retrieve user data.", Toast.LENGTH_SHORT).show()
+        }
+
+        // Spinner data
         val batch: Spinner = findViewById(R.id.batch_spin)
         val year: Spinner = findViewById(R.id.year_spin)
 
@@ -164,15 +180,23 @@ class AccountSetup2_2 : AppCompatActivity() {
                                     Toast.makeText(this, "Data Uploaded", Toast.LENGTH_SHORT).show()
                                     val intent = Intent(this, MainActivity::class.java)
                                     startActivity(intent)
+                                    finish()  // Finish current activity
                                 }
-                                .addOnFailureListener {
-                                    progressBar.visibility = View.GONE  // Hide progress bar
+                                .addOnFailureListener {  progressBar.visibility = View.GONE  // Hide progress bar
                                     Toast.makeText(this, "Data Upload Failed", Toast.LENGTH_SHORT).show()
                                 }
                         }
+                    }.addOnFailureListener {
+                        progressBar.visibility = View.GONE  // Hide progress bar
+                        Toast.makeText(this, "ID Image Upload Failed", Toast.LENGTH_SHORT).show()
                     }
                 }
+            }.addOnFailureListener {
+                progressBar.visibility = View.GONE  // Hide progress bar
+                Toast.makeText(this, "Profile Image Upload Failed", Toast.LENGTH_SHORT).show()
             }
         }
     }
 }
+
+
